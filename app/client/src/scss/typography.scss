@@ -1,16 +1,21 @@
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
 }
 
 h1, h2, h3, h4, h5{
     font-weight: 700;
-
+    color: $ColorWater;
 }
 
 h1{
     font-size: 35px;
+    font-weight: 900;
+}
+
+h2{
+    font-size: 30px;
     font-weight: 700;
 }
 

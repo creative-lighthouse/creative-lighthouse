@@ -1,0 +1,58 @@
+.section.section--HeaderElement{
+    max-width: none;
+    margin-top: -120px;
+    z-index: -1;
+    position: relative;
+    padding: 0;
+
+    .section_content{
+        max-width: none;
+        padding: 0;
+
+        .section_image{
+            width: 100%;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .section_text{
+            position: absolute;
+            top: 150px;
+            right: 100px;
+            text-align: right;
+
+            color: $ColorWater;
+            text-shadow: 0 0 20px rgba(256,256,256,1);
+
+            .text_title{
+                font-size: 3vw;
+                line-height: 50px;
+                font-weight: 900;
+                margin-bottom: 20px;
+            }
+
+            .text_content{
+                font-size: 1.5vw;
+                line-height: 30px;
+                font-weight: 400;
+                margin-bottom: 20px;
+            }
+
+            @include media("<=desktop") {
+                position: relative;
+                top: -20px;
+                right: 0;
+                text-align: center;
+                text-shadow: none;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    @include media("<=medium") {
+        margin-top: -75px;
+    }
+}

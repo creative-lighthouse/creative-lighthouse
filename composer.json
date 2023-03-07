@@ -1,7 +1,7 @@
 {
-    "name": "creative-lighthouse/silverstripe-template",
+    "name": "creative-lighthouse/creative-lighthouse",
     "type": "silverstripe-recipe",
-    "description": "Default Silverstripe installation",
+    "description": "Website of creative lighthouse",
     "require": {
         "php": "^7.4 || ^8",
         "silverstripe/recipe-plugin": "^1.2",
