@@ -36,9 +36,6 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            @include media("<=medium") {
-                display: none;
-            }
 
             .nav_link {
                 text-decoration: none;
@@ -84,6 +81,7 @@
             position: absolute;
             top: 20px;
             right: 60px;
+            transition: right 0.2s ease-in-out;
 
             @include media("<=medium") {
                 display: inline-block;
@@ -97,6 +95,7 @@
                     background-color: $ColorWhite;
                     transition: 0.4s;
                     position: absolute;
+                    box-shadow: 0 0 7px 0 rgba(0,0,0,0.8);
                 }
 
                 .bar1{
@@ -132,11 +131,61 @@
                     }
                 }
             }
+
+            .body--show &{
+                right: 40%;
+            }
         }
 
         @include media("<=medium") {
-            justify-content: flex-end;
-            height: 75px;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            max-height: 75px;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out;
+
+            .nav_brand{
+                position: absolute;
+                right: 10px;
+                top: 15px;
+                order: 1;
+            }
+
+            .nav_menu{
+                order: 2;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                background-color: $ColorWater;
+                transition: opacity 0.2s ease-in-out;
+                opacity: 0;
+
+                .nav_link {
+                    width: 80%;
+                }
+
+                &:first-of-type{
+                    padding-top: 75px;
+                }
+
+                &:last-of-type{
+                    padding-bottom: 75px;
+                }
+            }
+
+            .body--show & {
+                opacity: 1;
+                max-height: 3000px;
+
+                .nav_menu{
+                    opacity: 1;
+                }
+            }
         }
     }
 

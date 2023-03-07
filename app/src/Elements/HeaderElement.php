@@ -10,7 +10,11 @@ use DNADesign\Elemental\Models\BaseElement;
  *
  * @property string $Text
  * @property int $ImageID
+ * @property int $Image2ID
+ * @property int $Image3ID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\Assets\Image Image2()
+ * @method \SilverStripe\Assets\Image Image3()
  */
 class HeaderElement extends BaseElement
 {
@@ -25,10 +29,14 @@ class HeaderElement extends BaseElement
 
     private static $has_one = [
         'Image' => Image::class,
+        'Image2' => Image::class,
+        'Image3' => Image::class,
     ];
 
     private static $owns = [
         'Image',
+        'Image2',
+        'Image3',
     ];
 
     private static $table_name = 'HeaderElement';
