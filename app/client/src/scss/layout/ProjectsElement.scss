@@ -28,12 +28,18 @@
 
                     .projectitem_teams{
                         position: absolute;
-                        top: 8px;
-                        left: 10px;
+                        top: 0px;
+                        left: 0px;
+                        width: 100%;
+                        padding-top: 8px;
+                        padding-left: 10px;
                         display: flex;
                         z-index: 2;
                         transform: translateY(-60px);
                         transition: transform 0.3s ease-in-out;
+
+                        background: rgba(0, 0, 0, 0.5);
+                        background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0) 100%);
 
                         .projectitem_team{
                             height: 48px;
@@ -46,22 +52,30 @@
                                 object-fit: contain;
                             }
                         }
+
+                        @include media("<=smartphone") {
+                            transform: translateY(0);
+                        }
                     }
 
                     .projectitem_image{
                         position: absolute;
-                        top: -5px;
+                        top: -20px;
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        opacity: 0.2;
-                        transform: translateY(20px) scale(1.1);
+                        opacity: 0.8;
+                        transform: translateY(20px) scale(1.05);
                         transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
                         img{
                             width: 100%;
                             height: 100%;
                             object-fit: cover;
+                        }
+
+                        @include media("<=smartphone") {
+                            opacity: 1;
                         }
                     }
 
@@ -70,10 +84,10 @@
                         bottom: 0;
                         left: 0;
                         width: 100%;
-                        padding: 60px 20px 20px 20px;
-                        color: $ColorSand;
+                        padding: 80px 20px 20px 20px;
+                        color: $ColorWhite;
                         background: rgba(0, 0, 0, 0.5);
-                        background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
+                        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
 
                         .projectitem_date{
                             margin: 0;

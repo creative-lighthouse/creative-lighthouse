@@ -153,4 +153,12 @@ class Project extends DataObject
             return $date->Format("dd.MM.yy");
         }
     }
+
+    public function getYear()
+    {
+        $date = $this->dbObject('StartDate');
+        if ($date) {
+            return $date->Format("Y");
+        }
+    }
 }
