@@ -1,5 +1,5 @@
 SilverStripe\SiteConfig\SiteConfig:
-  cms_logo: '_resources/app/client/icons/cl_logo.svg'
+  cms_logo: '_resources/app/client/icons/cl_logo.png'
   cms_logo_width: 60 # Optional width constraint
 
 SilverStripe\Admin\LeftAndMain:

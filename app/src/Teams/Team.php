@@ -17,12 +17,19 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Title
  * @property string $Description
  * @property string $LinkTitle
+ * @property string $Website
+ * @property string $Instagram
+ * @property string $Facebook
+ * @property string $Twitter
+ * @property string $Youtube
+ * @property string $Linkedin
+ * @property string $Xing
+ * @property string $Github
+ * @property string $Email
  * @property int $IconID
  * @property int $ImageID
- * @property int $LinkID
  * @method \SilverStripe\Assets\Image Icon()
  * @method \SilverStripe\Assets\Image Image()
- * @method \SilverStripe\LinkField\Models\Link Link()
  */
 class Team extends DataObject
 {
@@ -30,18 +37,25 @@ class Team extends DataObject
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
         "LinkTitle" => "Varchar(255)",
+        "Website" => "Varchar(255)",
+        "Instagram" => "Varchar(255)",
+        "Facebook" => "Varchar(255)",
+        "Twitter" => "Varchar(255)",
+        "Youtube" => "Varchar(255)",
+        "Linkedin" => "Varchar(255)",
+        "Xing" => "Varchar(255)",
+        "Github" => "Varchar(255)",
+        "Email" => "Varchar(255)",
     ];
 
     private static $has_one = [
         "Icon" => Image::class,
         "Image" => Image::class,
-        "Link" => Link::class,
     ];
 
     private static $owns = [
         "Image",
         "Icon",
-        "Link",
     ];
 
     private static $belongs_many = [
@@ -113,16 +127,7 @@ class Team extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName("LinkID");
-        $fields->insertAfter('Description', LinkField::create('Link'));
         return $fields;
-    }
-
-    public function CMSEditLink()
-    {
-        $admin = TeamAdmin::singleton();
-        $urlClass = str_replace('\\', '-', self::class);
-        return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
     }
 
     public function getLink()
