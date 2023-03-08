@@ -1,22 +1,23 @@
 <?php
-namespace App\Projects;
+namespace App\Teams;
 
+use App\Teams\Team;
 use SilverStripe\Admin\ModelAdmin;
 
 /**
  * Class \App\Events\EventAdmin
  *
  */
-class ProjectAdmin extends ModelAdmin
+class TeamAdmin extends ModelAdmin
 {
 
     private static $managed_models = array (
-        Project::class,
+        Team::class,
     );
 
-    private static $url_segment = "projects";
+    private static $url_segment = "teams";
 
-    private static $menu_title = "Projekte";
+    private static $menu_title = "Teams";
 
     private static $menu_icon = "app/client/icons/docs.svg";
 
