@@ -13,4 +13,12 @@
             height: auto;
         }
     }
+
+    @include media("<=medium") {
+        margin-top: 0;
+
+        .section_image{
+            filter: blur(5px);
+        }
+    }
 }
