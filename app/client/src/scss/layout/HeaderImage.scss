@@ -7,18 +7,25 @@
     overflow: hidden;
 
     .section_image{
-        max-width: 100%;
+
         img{
             width: 100%;
             height: auto;
+
+            @include media("<=medium") {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        @include media("<=medium") {
+            height: 100px;
+            width: 100%;
         }
     }
 
     @include media("<=medium") {
         margin-top: 0;
-
-        .section_image{
-            filter: blur(5px);
-        }
     }
 }
