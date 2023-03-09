@@ -29,4 +29,13 @@ class ProjectOverviewPageController extends ContentController
     {
         return GroupedList::create(Project::get()->sort("StartDate", "DESC"));
     }
+
+    public function view()
+    {
+        $title = $this->getRequest()->param("ID");
+        $article = Project::get()->filter("LinkTitle", $title)->first();
+        return array(
+            "Project" => $article,
+        );
+    }
 }

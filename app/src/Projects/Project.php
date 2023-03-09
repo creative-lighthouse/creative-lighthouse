@@ -23,6 +23,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Project extends DataObject
 {
@@ -47,15 +48,15 @@ class Project extends DataObject
         "Image"
     ];
 
-    private static $default_sort = "FinishDate ASC";
+    private static $default_sort = "StartDate ASC";
 
     private static $field_labels = [
         "Title" => "Titel",
         "Status" => "Status",
         "Description" => "Beschreibung",
         "Image" => "Bild",
-        "StartDate" => "Startdatum",
-        "FinishDate" => "Enddatum",
+        "StartDate" => "Datum",
+        "FinishDate" => "Enddatum (optional)",
         "LinkTitle" => "URL Titel",
     ];
 
@@ -114,7 +115,7 @@ class Project extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName("Team");
+        $fields->removeByName("Teams");
         $category_map = [];
         if ($teams = Team::get()) {
             $category_map = $teams->map();

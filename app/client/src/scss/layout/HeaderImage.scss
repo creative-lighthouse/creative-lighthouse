@@ -1,0 +1,16 @@
+.section.section--HeaderImage{
+    max-width: none;
+    margin-top: -120px;
+    z-index: -1;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+
+    .section_image{
+        max-width: 100%;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

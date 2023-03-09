@@ -12,10 +12,24 @@
             }
         }
 
+        .state_title{
+            margin-top: 30px;
+            margin-bottom: -10px;
+            position: relative;
+            display: block;
+        }
+
+        .time_title{
+            margin: 10px 0;
+            position: relative;
+            display: block;
+        }
+
         .section_projectlist{
             display: grid;
             grid-template-columns: repeat(3, calc(100% / 3));
             margin: -10px;
+            justify-content: center;
 
             .projectitem_wrap{
                 padding: 10px;

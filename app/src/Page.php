@@ -2,6 +2,8 @@
 
 namespace {
 
+    use SilverStripe\AssetAdmin\Forms\UploadField;
+    use SilverStripe\Assets\Image;
     use SilverStripe\CMS\Model\SiteTree;
     use SilverStripe\Forms\DropdownField;
 
@@ -10,7 +12,9 @@ namespace {
  *
  * @property string $MenuPosition
  * @property int $ElementalAreaID
+ * @property int $HeaderImageID
  * @method \DNADesign\Elemental\Models\ElementalArea ElementalArea()
+ * @method \SilverStripe\Assets\Image HeaderImage()
  * @mixin \DNADesign\Elemental\Extensions\ElementalPageExtension
  */
     class Page extends SiteTree
@@ -19,7 +23,13 @@ namespace {
             "MenuPosition" => "Enum('main1,main2,footer', 'main1')",
         ];
 
-        private static $has_one = [];
+        private static $has_one = [
+            "HeaderImage" => Image::class,
+        ];
+
+        private static $owns = [
+            "HeaderImage",
+        ];
 
         public function getCMSFields()
         {
@@ -29,6 +39,7 @@ namespace {
                 "main2" => "Sekundärmenü",
                 "footer" => "Footer",
             ]), "Content");
+            $fields->insertAfter("MenuPosition", new UploadField("HeaderImage", "Header Bild"));
             return $fields;
         }
     }

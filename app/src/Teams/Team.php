@@ -30,6 +30,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Icon()
  * @method \SilverStripe\Assets\Image Image()
+ * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Team extends DataObject
 {
@@ -62,7 +63,7 @@ class Team extends DataObject
         Project::class
     ];
 
-    private static $default_sort = "Title ASC";
+    private static $default_sort = "LinkTitle ASC";
 
     private static $field_labels = [
         "Title" => "Titel",

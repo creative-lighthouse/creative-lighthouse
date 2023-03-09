@@ -7,6 +7,7 @@
     filter: none;
     background: $ColorSand;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0) 10%, rgba(0,0,0,.5) 100%);
+    z-index: 2;
 
     .header_nav{
         display: flex;
@@ -38,6 +39,7 @@
             align-items: center;
 
             .nav_link {
+                position: relative;
                 text-decoration: none;
                 display: inline-block;
                 margin: 10px 10px;
@@ -50,8 +52,25 @@
                 transition: border 0.2s ease-in-out;
                 text-transform: uppercase;
 
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: rgb(250,47,51);
+                    background: linear-gradient(145deg, rgba(250,47,51,1) 0%, rgba(151,6,107,1) 100%);
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    top: 100%;
+                    z-index: -1;
+                    transition: top 0.09s ease-in;
+                }
+
                 &:hover {
                     border: 1px solid $ColorWhite;
+
+                    &:before {
+                        top: 0;
+                    }
                 }
 
                 &:active {
@@ -59,7 +78,7 @@
                 }
 
                 &:focus {
-                    background-color: $ColorWhite;
+                    border: 1px solid $ColorWhite;
                 }
 
                 &.nav_link--active {
@@ -133,7 +152,8 @@
             }
 
             .body--show &{
-                right: 40%;
+                right: 50%;
+                transform: translateX(50%);
             }
         }
 

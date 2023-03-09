@@ -1,3 +1,9 @@
+<div class="section section--HeaderImage">
+    <div class="section_image">
+        <img src="$HeaderImage.FocusFill(1920, 400).URL" alt="$Title" />
+    </div>
+</div>
+
 $ElementalArea
 
 <div class="section section--ProjectsElement">
@@ -7,10 +13,19 @@ $ElementalArea
             <div class="section_description">$Text</div>
         </div>
         <% loop GetProjects.GroupedBy(Status) %>
-            <h2>$Status</h2>
+            <h2 class="state_title">
+                <% if $Status = "InProgress" %>
+                    <%t App.IN_PROGRESS 'Sonstiges' %>
+                <% else_if $Status = "Finished" %>
+                    <%t App.FINISHED 'Sonstiges' %>
+                <% else_if $Status = "Planned" %>
+                    <%t App.PLANNED 'Sonstiges' %>
+                <% end_if %>
+
+            </h2>
 
             <% loop Children.GroupedBy(Year) %>
-            <h3><% if $Year %>$Year<% else %>In Zukunft<% end_if %></h3>
+            <h3 class="time_title"><% if $Year %>$Year<% else %>In Zukunft<% end_if %></h3>
                 <div class="section_projectlist">
                     <% loop $Children %>
                         <div class="projectitem_wrap">

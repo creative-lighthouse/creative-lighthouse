@@ -1,0 +1,5 @@
+de:
+  App:
+    IN_PROGRESS: 'In Progress'
+    PLANNED: 'Planned'
+    FINISHED: 'Completed'
