@@ -3,6 +3,7 @@
 namespace App\Elements;
 
 use App\Projects\Project;
+use App\Projects\ProjectOverviewPage;
 use SilverStripe\Assets\Image;
 use DNADesign\Elemental\Models\BaseElement;
 
@@ -38,6 +39,11 @@ class ProjectsElement extends BaseElement
 
     public function getProjects()
     {
-        return Project::get();
+        return Project::get()->limit(6);
+    }
+
+    public function getProjectsHolderLink()
+    {
+        return ProjectOverviewPage::get()->first()->Link();
     }
 }

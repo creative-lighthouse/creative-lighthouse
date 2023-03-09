@@ -34,3 +34,59 @@ body{
         padding: 0 20px;
     }
 }
+
+a{
+    &.link--button{
+        margin: 20px 0;
+        display: inline-block;
+        padding: 10px 40px 10px 20px;
+        border: 1px solid $ColorWater;
+        color: $ColorWater;
+        position: relative;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+
+        &:after {
+            content: "";
+            position: absolute;
+            background: rgb(250,47,51);
+            background: linear-gradient(145deg, rgba(250,47,51,1) 0%, rgba(151,6,107,1) 100%);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 100%;
+            z-index: -1;
+            transition: top 0.09s ease-in;
+        }
+
+        &:before{
+            content: "";
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 13px;
+            height: 13px;
+            border-top: 2px solid $ColorWater;
+            border-right: 2px solid $ColorWater;
+        }
+
+        &:hover {
+            color: $ColorWhite;
+            border-color: $ColorWhite;
+
+            &:after {
+                top: 0;
+            }
+
+            &:before{
+                border-top: 2px solid $ColorWhite;
+                border-right: 2px solid $ColorWhite;
+            }
+        }
+
+        @include media("<=smartphone") {
+            width: 100%;
+        }
+    }
+}

@@ -36,5 +36,6 @@
                 </div>
             <% end_loop %>
         </div>
+        <a class="link--button" href="$ProjectsHolderLink"><%t ProjectsElement.AllProjects "Alle Projekte" %></a>
     </div>
 </div>
