@@ -1,0 +1,89 @@
+.section.section--TeamOverview {
+    .section_content{
+        .section_text{
+            margin-bottom: 30px;
+        }
+
+        .section_teamslist{
+            .teamitem_wrap{
+                position: relative;
+
+                .teamitem{
+                    background-size: cover;
+                    background-blend-mode: multiply;
+                    background-color: #7e7e7e;
+                    color: $ColorWhite;
+                    margin: 20px 0;
+
+                    .teamitem_text{
+                        display: flex;
+                        padding: 20px;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 20px;
+
+                        .teammember_image{
+                            display: block;
+                            justify-content: center;
+                            align-items: center;
+                            aspect-ratio: 1/1;
+                        }
+
+                        h2{
+                            color: $ColorWhite;
+                        }
+                    }
+
+                    .teamitem_members{
+                        display: grid;
+                        grid-template-columns: repeat(4, calc((100% / 4) - 20px));
+                        justify-content: center;
+                        gap: 20px;
+                        padding: 0px 10px 20px 10px;
+
+                        .teammember{
+                            padding: 20px;
+                            background-color: rgba(0, 0, 0, 0.5);
+
+                            .teammember_image{
+                                border-radius: 50%;
+                                overflow: hidden;
+                                width: 100%;
+                                aspect-ratio: 1/1;
+                                background-color: $ColorSecondary;
+
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            .teammember_text{
+                                .teammember_name{
+                                    color: $ColorWhite;
+                                    text-align: center;
+                                    padding-top: 20px;
+                                }
+                            }
+                        }
+
+                        @include media("<=1000px"){
+                            grid-template-columns: repeat(3, calc((100% / 3) - 20px));
+                        }
+
+                        @include media("<=medium"){
+                            grid-template-columns: repeat(2, calc((100% / 2) - 20px));
+                        }
+
+                        @include media("<=smartphone"){
+                            grid-template-columns: repeat(1, calc((100% / 1) - 20px));
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+}

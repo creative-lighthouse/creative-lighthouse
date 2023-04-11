@@ -14,7 +14,7 @@ use SilverStripe\CMS\Controllers\ContentController;
 class PersonOverviewPageController extends ContentController
 {
     private static $allowed_actions = [
-        "view"
+        "people"
     ];
 
     protected function init()
@@ -26,10 +26,10 @@ class PersonOverviewPageController extends ContentController
 
     public function getPersons()
     {
-        return Person::get()->sort("Title", "DESC");
+        return Person::get()->sort("Title", "ASC");
     }
 
-    public function view()
+    public function people()
     {
         $title = $this->getRequest()->param("ID");
         $article = Person::get()->filter("LinkTitle", $title)->first();

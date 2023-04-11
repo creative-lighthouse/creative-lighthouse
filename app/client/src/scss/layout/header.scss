@@ -184,6 +184,7 @@
                 background-color: $ColorWater;
                 transition: opacity 0.2s ease-in-out;
                 opacity: 0;
+                pointer-events: none;
 
                 .nav_link {
                     width: 80%;
@@ -204,12 +205,13 @@
 
                 .nav_menu{
                     opacity: 1;
+                    pointer-events: all;
                 }
             }
         }
     }
 
     @include media("<=medium") {
-        padding: 0 10px;
+        padding: 0px 10px;
     }
 }

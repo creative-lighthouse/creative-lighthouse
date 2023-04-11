@@ -6,34 +6,38 @@
 
 $ElementalArea
 
-<div class="section section--TeamsOverview">
+<div class="section section--TeamOverview">
     <div class="section_content">
         <div class="section_text">
             <h2 class="section_title">$Title</h2>
             <div class="section_description">$Text</div>
         </div>
-        <% loop $Teams %>
-            <div class="section_teamslist">
+        <div class="section_teamslist">
+            <% loop $Teams %>
                 <div class="teamitem_wrap">
-                    <div class="teamitem">
-                        <a href="$Link" class="teamitem_image">
-                            <% if $Image %>
-                                <img src="$Image.FocusFill(800,400).URL" alt="$Title"/>
-                            <% end_if %>
+                    <div class="teamitem" style="background-image: url($Image.FocusFill(800,400).URL);">
+                        <a class="teamitem_text" href="$Link">
+                            <img src="$Icon.Fit(50,50).URL" alt="$Title"/>
+                            <h2>$Title</h2>
                         </a>
-                        <a href="$Link" class="projectitem_text">
-                            <% if $FormattedStartDate && $FormattedFinishDate %>
-                                <p class="projectitem_date">$FormattedStartDate - $FormattedFinishDate</p>
-                            <% else_if $FormattedStartDate %>
-                                <p class="projectitem_date">$FormattedStartDate</p>
-                            <% else_if $FormattedFinishDate %>
-                                <p class="projectitem_date">$FormattedFinishDate</p>
-                            <% end_if %>
-                            <h3 class="projectitem_title">$Title</h3>
-                        </a>
+
+                        <div class="teamitem_members">
+                            <% loop $Teammembers %>
+                                <a class="teammember" href="$Link">
+                                    <div class="teammember_image">
+                                        <% if $Image %>
+                                            <img src="$Image.FocusFill(400,400).URL" alt="$Title"/>
+                                        <% end_if %>
+                                    </div>
+                                    <div class="teammember_text">
+                                        <h3 class="teammember_name">$Title</h3>
+                                    </div>
+                                </a>
+                            <% end_loop %>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end_loop %>
+            <% end_loop %>
+        </div>
     </div>
 </div>
