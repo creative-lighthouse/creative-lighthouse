@@ -1,3 +1,9 @@
+<div class="section section--HeaderImage">
+    <div class="section_image">
+        <img src="$Top.HeaderImage.FocusFill(1920, 400).URL" alt="$Title" />
+    </div>
+</div>
+
 <% with $Project %>
 
     <div class="section section--ProjectDetails">
