@@ -15,7 +15,7 @@ $ElementalArea
         <div class="section_teamslist">
             <% loop $Teams %>
                 <div class="teamitem_wrap">
-                    <div class="teamitem" style="background-image: url($Image.FocusFill(800,400).URL);">
+                    <div class="teamitem" style="background-image: url($Image.FocusFill(1000,800).URL);">
                         <a class="teamitem_text" href="$Link">
                             <img src="$Icon.Fit(50,50).URL" alt="$Title"/>
                             <h2>$Title</h2>
