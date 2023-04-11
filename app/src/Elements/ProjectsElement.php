@@ -39,7 +39,7 @@ class ProjectsElement extends BaseElement
 
     public function getProjects()
     {
-        return Project::get()->limit(6);
+        return Project::get()->limit(6)->sort("StartDate", "DESC");
     }
 
     public function getProjectsHolderLink()

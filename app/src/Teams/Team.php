@@ -30,6 +30,8 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Icon()
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Projects\Project[] Projects()
+ * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Person[] Teammembers()
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Team extends DataObject
@@ -59,8 +61,9 @@ class Team extends DataObject
         "Icon",
     ];
 
-    private static $belongs_many = [
-        Project::class
+    private static $many_many = [
+        "Projects" => Project::class,
+        "Teammembers" => Person::class,
     ];
 
     private static $default_sort = "LinkTitle ASC";
@@ -72,6 +75,8 @@ class Team extends DataObject
         "Icon" => "Icon",
         "Link" => "Link",
         "LinkTitle" => "URL Titel",
+        "Projects" => "Projekte",
+        "Teammembers" => "Mitglieder",
     ];
 
     private static $summary_fields = [

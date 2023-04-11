@@ -34,5 +34,10 @@ App\Teams\Team:
   extensions:
     - TractorCow\Fluent\Extension\FluentExtension
   translate:
-    - Title
+    - Description
+
+App\Teams\Person:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+  translate:
     - Description

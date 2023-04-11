@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Projects;
+namespace App\Teams;
 
-use App\Teams\Team;
-use App\Projects\ProjectAdmin;
+use App\Projects\Project;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
-use App\Projects\ProjectOverviewPage;
-use App\Teams\Person;
 use SilverStripe\Security\Permission;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
@@ -16,9 +13,6 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * Class \App\Docs\Docs
  *
  * @property string $Title
- * @property string $StartDate
- * @property string $FinishDate
- * @property string $Status
  * @property string $Description
  * @property string $LinkTitle
  * @property int $ImageID
@@ -26,13 +20,10 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
-class Project extends DataObject
+class Person extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "StartDate" => "Date",
-        "FinishDate" => "Date",
-        "Status" => "Enum('Finished, InProgress, Planned', 'Finished')",
         "Description" => "HTMLText",
         "LinkTitle" => "Varchar(255)",
     ];
@@ -41,41 +32,36 @@ class Project extends DataObject
         "Image" => Image::class,
     ];
 
+    private static $owns = [
+        "Image",
+    ];
+
     private static $belongs_many_many = [
         "Teams" => Team::class,
     ];
 
-    private static $owns = [
-        "Image"
-    ];
-
-    private static $default_sort = "StartDate ASC";
+    private static $default_sort = "Title ASC";
 
     private static $field_labels = [
         "Title" => "Titel",
-        "Status" => "Status",
         "Description" => "Beschreibung",
         "Image" => "Bild",
-        "StartDate" => "Datum",
-        "FinishDate" => "Enddatum (optional)",
-        "LinkTitle" => "URL Titel",
     ];
 
     private static $summary_fields = [
         "Title" => "Titel",
-        "Status" => "Status",
     ];
 
     private static $searchable_fields = [
         "Title", "Description",
     ];
 
-    private static $table_name = "Project";
+    private static $table_name = "Person";
 
-    private static $singular_name = "Projekt";
-    private static $plural_name = "Projekte";
+    private static $singular_name = "Person";
+    private static $plural_name = "Personen";
 
-    private static $url_segment = "projects";
+    private static $url_segment = "person";
 
     public function canView($member = null)
     {
@@ -125,42 +111,11 @@ class Project extends DataObject
         return $fields;
     }
 
-    public function CMSEditLink()
-    {
-        $admin = ProjectAdmin::singleton();
-        $urlClass = str_replace('\\', '-', self::class);
-        return $admin->Link("/{$urlClass}/EditForm/field/{$urlClass}/item/{$this->ID}/edit");
-    }
-
     public function getLink()
     {
-        $holder = ProjectOverviewPage::get()->sort("ID", "ASC")->First();
+        $holder = PersonOverviewPage::get()->sort("ID", "ASC")->First();
         if ($holder) {
-            return $holder->Link("view/") . $this->LinkTitle;
-        }
-    }
-
-    public function getFormattedStartDate()
-    {
-        $date = $this->dbObject('StartDate');
-        if ($date) {
-            return $date->Format("dd.MM.yy");
-        }
-    }
-
-    public function getFormattedFinishDate()
-    {
-        $date = $this->dbObject('FinishDate');
-        if ($date) {
-            return $date->Format("dd.MM.yy");
-        }
-    }
-
-    public function getYear()
-    {
-        $date = $this->dbObject('StartDate');
-        if ($date) {
-            return $date->Format("Y");
+            return $holder->Link("people/") . $this->LinkTitle;
         }
     }
 }

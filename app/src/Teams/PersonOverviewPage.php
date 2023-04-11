@@ -2,18 +2,17 @@
 namespace App\Teams;
 
 use Page;
-use SilverStripe\Forms\TextField;
 
 /**
  * Class \App\Docs\DocsPage
  *
  */
-class TeamsOverviewPage extends Page
+class PersonOverviewPage extends Page
 {
     private static $db = [
     ];
 
-    private static $table_name = "TeamsOverviewPage";
+    private static $table_name = "PersonOverviewPage";
 
     public function getCMSFields()
     {
