@@ -26,7 +26,10 @@
         <% end_if %>
         <div class="section_content">
                 <h1>$Title</h1>
-                <p>$Content</p>
+                <p>$Description</p>
+                <p><b>Status:</b> $Status</p>
+                <p><b>Datum:</b> $StartDate<% if $FinishDate %>- $FinishDate<% end_if %></p>
+                <p><b>Standort:</b> $Location</p>
         </div>
     </div>
 <% end_with %>

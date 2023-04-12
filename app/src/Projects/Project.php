@@ -34,6 +34,7 @@ class Project extends DataObject
         "FinishDate" => "Date",
         "Status" => "Enum('Finished, InProgress, Planned', 'Finished')",
         "Description" => "HTMLText",
+        "Location" => "Varchar(255)",
         "LinkTitle" => "Varchar(255)",
     ];
 
