@@ -39,16 +39,8 @@ class Project extends DataObject
         "LinkTitle" => "Varchar(255)",
     ];
 
-    private static $has_one = [
-        "Image" => Image::class,
-    ];
-
     private static $belongs_many_many = [
         "Teams" => Team::class,
-    ];
-
-    private static $owns = [
-        "Image"
     ];
 
     private static $default_sort = "StartDate ASC";
