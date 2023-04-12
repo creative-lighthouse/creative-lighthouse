@@ -4,6 +4,7 @@ namespace App\Teams;
 
 use App\Projects\Project;
 use SilverStripe\Assets\Image;
+use App\Teams\PersonSocialLink;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\Forms\CheckboxSetField;
@@ -17,6 +18,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\ORM\DataList|\App\Teams\PersonSocialLink[] SocialLinks()
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
@@ -28,12 +30,17 @@ class Person extends DataObject
         "LinkTitle" => "Varchar(255)",
     ];
 
+    private static $has_many = [
+        "SocialLinks" => PersonSocialLink::class,
+    ];
+
     private static $has_one = [
         "Image" => Image::class,
     ];
 
     private static $owns = [
         "Image",
+        "SocialLinks",
     ];
 
     private static $belongs_many_many = [
@@ -46,6 +53,7 @@ class Person extends DataObject
         "Title" => "Titel",
         "Description" => "Beschreibung",
         "Image" => "Bild",
+        "SocialLinks" => "Soziale Links",
     ];
 
     private static $summary_fields = [

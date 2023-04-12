@@ -37,10 +37,6 @@
             @include media("<=medium"){
                 grid-template-columns: repeat(2, calc((100% / 2) - 20px));
             }
-
-            @include media("<=smartphone"){
-                grid-template-columns: repeat(1, calc((100% / 1) - 20px));
-            }
         }
     }
 }

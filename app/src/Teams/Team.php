@@ -17,19 +17,11 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Title
  * @property string $Description
  * @property string $LinkTitle
- * @property string $Website
- * @property string $Instagram
- * @property string $Facebook
- * @property string $Twitter
- * @property string $Youtube
- * @property string $Linkedin
- * @property string $Xing
- * @property string $Github
- * @property string $Email
  * @property int $IconID
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Icon()
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\ORM\DataList|\App\Teams\TeamSocialLink[] SocialLinks()
  * @method \SilverStripe\ORM\ManyManyList|\App\Projects\Project[] Projects()
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Person[] Teammembers()
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
@@ -40,15 +32,6 @@ class Team extends DataObject
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
         "LinkTitle" => "Varchar(255)",
-        "Website" => "Varchar(255)",
-        "Instagram" => "Varchar(255)",
-        "Facebook" => "Varchar(255)",
-        "Twitter" => "Varchar(255)",
-        "Youtube" => "Varchar(255)",
-        "Linkedin" => "Varchar(255)",
-        "Xing" => "Varchar(255)",
-        "Github" => "Varchar(255)",
-        "Email" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -56,14 +39,18 @@ class Team extends DataObject
         "Image" => Image::class,
     ];
 
-    private static $owns = [
-        "Image",
-        "Icon",
+    private static $has_many = [
+        "SocialLinks" => TeamSocialLink::class,
     ];
 
     private static $many_many = [
         "Projects" => Project::class,
         "Teammembers" => Person::class,
+    ];
+
+    private static $owns = [
+        "Image",
+        "Icon",
     ];
 
     private static $default_sort = "LinkTitle ASC";
@@ -77,6 +64,7 @@ class Team extends DataObject
         "LinkTitle" => "URL Titel",
         "Projects" => "Projekte",
         "Teammembers" => "Mitglieder",
+        "SocialLinks" => "Soziale Links",
     ];
 
     private static $summary_fields = [
