@@ -1,3 +1,4 @@
+import Swiper, {Autoplay, EffectCoverflow, EffectFade, Navigation, Pagination} from 'swiper';
 import GLightbox from "glightbox";
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -12,5 +13,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
         selector: '[data-gallery="gallery"]',
         touchNavigation: true,
         loop: true,
+    });
+
+    const sliders = document.querySelectorAll('.swiper');
+
+    // init Swiper:
+    sliders.forEach(function (slider) {
+        const autoSwiper = slider.classList.contains('swiper--auto');
+        const swiper = new Swiper(slider, {
+            // configure Swiper to use modules
+            modules: [Navigation, Autoplay, EffectFade],
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            direction: 'horizontal',
+            loop: autoSwiper,
+
+            autoplay: autoSwiper ? {
+                delay: 5000,
+            } : false,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
     });
 });

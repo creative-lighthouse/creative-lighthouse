@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6457c420980e27774f329fa9468b61c5",
+    "content-hash": "47d346abac8e665f27c4ce9f831ef742",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2322,6 +2322,100 @@
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
+            "name": "purplespider/silverstripe-asset-delete-if-unused-extension",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/purplespider/asset-delete-if-unused-extension.git",
+                "reference": "dabf19282bdf0e0b4879d05944eab1f8e90516a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/purplespider/asset-delete-if-unused-extension/zipball/dabf19282bdf0e0b4879d05944eab1f8e90516a1",
+                "reference": "dabf19282bdf0e0b4879d05944eab1f8e90516a1",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "James Cocker",
+                    "email": "ssmodules@pswd.biz"
+                }
+            ],
+            "description": "Provides a deleteIfUnused() method to the File class",
+            "homepage": "http://github.com/purplespider/silverstripe-asset-delete-if-unused-extension",
+            "keywords": [
+                "assets",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "http://github.com/purplespider/silverstripe-asset-delete-if-unused-extension/issues",
+                "source": "https://github.com/purplespider/asset-delete-if-unused-extension/tree/1.0"
+            },
+            "time": "2021-11-03T14:56:48+00:00"
+        },
+        {
+            "name": "purplespider/silverstripe-basic-gallery-extension",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/purplespider/silverstripe-basic-gallery-extension.git",
+                "reference": "5e83bd95bb8c678d9379079fac104d4b61b527b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/purplespider/silverstripe-basic-gallery-extension/zipball/5e83bd95bb8c678d9379079fac104d4b61b527b2",
+                "reference": "5e83bd95bb8c678d9379079fac104d4b61b527b2",
+                "shasum": ""
+            },
+            "require": {
+                "colymba/gridfield-bulk-editing-tools": "3.*",
+                "purplespider/silverstripe-asset-delete-if-unused-extension": "1.*",
+                "silverstripe/cms": "^4.1",
+                "silverstripe/framework": "^4.1",
+                "silverstripe/lumberjack": "2.*",
+                "symbiote/silverstripe-gridfieldextensions": "^3"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "James Cocker",
+                    "email": "ssmodules@pswd.biz"
+                }
+            ],
+            "description": "Silverstripe CMS Image Gallery Extension",
+            "homepage": "https://github.com/purplespider/silverstripe-basic-gallery-extension",
+            "keywords": [
+                "bulk",
+                "extension",
+                "gallery",
+                "image",
+                "photo",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/purplespider/silverstripe-basic-gallery-extension/issues",
+                "source": "https://github.com/purplespider/silverstripe-basic-gallery-extension/tree/3.0.5"
+            },
+            "time": "2021-11-04T11:41:03+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -3139,6 +3233,59 @@
                 "source": "https://github.com/silverstripe/silverstripe-login-forms/tree/4.8.0"
             },
             "time": "2022-11-10T01:56:20+00:00"
+        },
+        {
+            "name": "silverstripe/lumberjack",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-lumberjack.git",
+                "reference": "0a46be334669a36381a5d8b6201e3dd638f99581"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-lumberjack/zipball/0a46be334669a36381a5d8b6201e3dd638f99581",
+                "reference": "0a46be334669a36381a5d8b6201e3dd638f99581",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "silverstripe/cms": "^4.0",
+                "silverstripe/framework": "^4.10"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "css",
+                    "javascript"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Lumberjack\\": "src/",
+                    "SilverStripe\\Lumberjack\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Strong",
+                    "email": "mstrong@silverstripe.org"
+                }
+            ],
+            "description": "A module to make managing pages in a GridField easy without losing any of the functionality that you're used to in the CMS.",
+            "support": {
+                "issues": "https://github.com/silverstripe/silverstripe-lumberjack/issues",
+                "source": "https://github.com/silverstripe/silverstripe-lumberjack/tree/2.3.0"
+            },
+            "time": "2023-03-07T22:47:57+00:00"
         },
         {
             "name": "silverstripe/mimevalidator",

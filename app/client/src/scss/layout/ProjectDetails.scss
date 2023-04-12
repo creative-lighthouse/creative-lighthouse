@@ -6,7 +6,9 @@
     overflow: hidden;
 
     .section_image{
+        display: block;
         max-width: 100%;
+        height: auto;
     }
 
     @include media("<=medium") {

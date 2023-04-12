@@ -23,7 +23,9 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $LinkTitle
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
+ * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
  * @mixin \TractorCow\Fluent\Extension\FluentExtension
  */
 class Project extends DataObject

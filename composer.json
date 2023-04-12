@@ -16,7 +16,8 @@
         "silverstripe/login-forms": "^4.6",
         "wilr/silverstripe-googlesitemaps": "^2.2",
         "ryanpotter/silverstripe-cms-theme": "^3.4",
-        "silverstripe/linkfield": "1.x-dev"
+        "silverstripe/linkfield": "1.x-dev",
+        "purplespider/silverstripe-basic-gallery-extension": "^3.0"
     },
     "repositories": {
         "silverstripe/linkfield": {

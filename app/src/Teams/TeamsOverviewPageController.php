@@ -27,7 +27,10 @@ class TeamsOverviewPageController extends ContentController
 
     public function getTeams()
     {
-        return Team::get()->sort("Title", "DESC");
+        return Team::get()->sort([
+            "Importance" => "DESC",
+            "Title" => "ASC",
+        ]);
     }
 
     public function view()

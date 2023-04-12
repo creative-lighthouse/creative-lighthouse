@@ -17,6 +17,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Title
  * @property string $Description
  * @property string $LinkTitle
+ * @property int $Importance
  * @property int $IconID
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Icon()
@@ -32,6 +33,7 @@ class Team extends DataObject
         "Title" => "Varchar(255)",
         "Description" => "HTMLText",
         "LinkTitle" => "Varchar(255)",
+        "Importance" => "Int",
     ];
 
     private static $has_one = [
@@ -53,7 +55,7 @@ class Team extends DataObject
         "Icon",
     ];
 
-    private static $default_sort = "LinkTitle ASC";
+    private static $default_sort = "Importance DESC, LinkTitle ASC";
 
     private static $field_labels = [
         "Title" => "Titel",
@@ -62,13 +64,16 @@ class Team extends DataObject
         "Icon" => "Icon",
         "Link" => "Link",
         "LinkTitle" => "URL Titel",
+        "Importance" => "Wichtigkeit",
         "Projects" => "Projekte",
         "Teammembers" => "Mitglieder",
         "SocialLinks" => "Soziale Links",
     ];
 
     private static $summary_fields = [
+        "Importance" => "Wichtigkeit",
         "Title" => "Titel",
+        "Teammembers.Count" => "Mitglieder",
     ];
 
     private static $searchable_fields = [

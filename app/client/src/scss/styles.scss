@@ -1,5 +1,6 @@
 @import "include-media";
 @import "~glightbox/dist/css/glightbox.css";
+@import 'swiper/swiper-bundle.css';
 
 @import "fonts";
 @import "normalize";
@@ -17,6 +18,7 @@
 @import "layout/ProjectsElement.scss";
 @import "layout/ProjectDetails.scss";
 @import "layout/TeamOverview.scss";
+@import "layout/TeamDetails.scss";
 @import "layout/PersonOverview.scss";
 @import "layout/PersonDetails.scss";
 
