@@ -11,25 +11,29 @@
     </div>
 
     <div class="section section--ProjectDetails">
-        <% if $PhotoGalleryImages %>
-            <div class="swiper swiper--auto">
-                <div class="swiper-wrapper">
-                    <% loop $PhotoGalleryImages %>
-                        <div class="swiper-slide">
-                            <a data-gallery="gallery" data-glightbox="description: $Title" data-caption="$Title" href="$Image.FitMax(2000,2000).URL">
-                                <img src="$Image.FocusFill(1200,500).URL" />
-                            </a>
-                        </div>
-                    <% end_loop %>
+        <div class="section_image">
+            <% if $PhotoGalleryImages %>
+                <div class="swiper swiper--auto">
+                    <div class="swiper-wrapper">
+                        <% loop $PhotoGalleryImages %>
+                            <div class="swiper-slide">
+                                <a data-gallery="gallery" data-glightbox="description: $Title" data-caption="$Title" href="$Image.FitMax(2000,2000).URL">
+                                    <img src="$Image.FocusFill(1200,500).URL" />
+                                </a>
+                            </div>
+                        <% end_loop %>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-            </div>
-        <% end_if %>
+            <% end_if %>
+        </div>
         <div class="section_content">
-                <h1>$Title</h1>
-                <p>$Description</p>
-                <p><b>Status:</b> $Status</p>
-                <p><b>Datum:</b> $StartDate<% if $FinishDate %>- $FinishDate<% end_if %></p>
-                <% if $Location %><p><b>Standort:</b> $Location</p><% end_if %>
+            <h1>$Title</h1>
+            <p>$Description</p>
+            <p><b>Status:</b> $Status</p>
+            <p><b>Datum:</b> $StartDate<% if $FinishDate %>- $FinishDate<% end_if %></p>
+            <% if $Location %><p><b>Standort:</b> $Location</p><% end_if %>
         </div>
     </div>
 <% end_with %>

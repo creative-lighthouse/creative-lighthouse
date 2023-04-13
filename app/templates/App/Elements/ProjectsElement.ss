@@ -18,8 +18,8 @@
                             <% end_loop %>
                         </div>
                         <a href="$Link" class="projectitem_image">
-                            <% if $Image %>
-                                <img src="$Image.FocusFill(400,400).URL" alt="$Title"/>
+                            <% if $PhotoGalleryImages %>
+                                <img src="$PhotoGalleryImages.First.Image.FocusFill(400,400).URL" alt="$Title"/>
                             <% end_if %>
                         </a>
                         <a href="$Link" class="projectitem_text">

@@ -15,6 +15,7 @@
                     background-color: #7e7e7e;
                     color: $ColorWhite;
                     margin: 20px 0;
+                    border-radius: 20px;
 
                     .teamitem_text{
                         display: flex;
@@ -45,6 +46,7 @@
                         .teammember{
                             padding: 20px;
                             background-color: rgba(0, 0, 0, 0.5);
+                            border-radius: 10px;
 
                             .teammember_image{
                                 border-radius: 50%;

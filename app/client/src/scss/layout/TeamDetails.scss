@@ -1,11 +1,34 @@
 .section.section--TeamDetails{
     .section_content{
-        .section_members{
-            ul{
+        margin-top: 120px;
+        text-align: center;
+
+        .section_icon{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .section_socials{
+            margin-bottom: 20px;
+        }
+
+        .section_team{
+
+            h2{
+                span{
+                    font-weight: 200;
+                }
+            }
+
+            .section_members{
                 display: grid;
-                grid-template-columns: repeat(4, calc((100% / 4) - 20px));
+                grid-template-columns: repeat(4, calc(100% / 4));
+                margin: 20px 0;
 
                 .teamitem{
+                    padding: 10px;
                     text-align: center;
                     .teamitem_image{
                         border-radius: 50%;
@@ -14,6 +37,8 @@
                         margin-bottom: 10px;
                         padding: 0;
                         aspect-ratio: 1/1;
+                        background-color: $ColorSecondary;
+
                         img{
                             width: 100%;
                             height: 100%;
@@ -23,15 +48,48 @@
                 }
 
                 @include media("<=1000px"){
-                    grid-template-columns: repeat(3, calc((100% / 3) - 20px));
+                    grid-template-columns: repeat(3, calc(100% / 3));
                 }
 
                 @include media("<=medium"){
-                    grid-template-columns: repeat(2, calc((100% / 2) - 20px));
+                    grid-template-columns: repeat(2, calc(100% / 2));
+                }
+            }
+        }
+
+        .section_projects{
+            .section_projectlist{
+                display: grid;
+                grid-template-columns: repeat(4, calc(100% / 4));
+                margin: 20px 0;
+
+                .projectitem{
+                    padding: 10px;
+                    text-align: center;
+
+                    .projectitem_image{
+                        border-radius: 20px;
+                        overflow: hidden;
+                        display: block;
+                        margin-bottom: 10px;
+                        padding: 0;
+                        aspect-ratio: 1/1;
+                        background-color: $ColorSecondary;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
                 }
 
-                @include media("<=smartphone"){
-                    grid-template-columns: repeat(1, calc((100% / 1) - 20px));
+                @include media("<=1000px"){
+                    grid-template-columns: repeat(3, calc(100% / 3));
+                }
+
+                @include media("<=medium"){
+                    grid-template-columns: repeat(2, calc(100% / 2));
                 }
             }
         }

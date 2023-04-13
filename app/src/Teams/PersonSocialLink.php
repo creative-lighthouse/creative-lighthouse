@@ -4,6 +4,7 @@ namespace App\Teams;
 
 use App\Teams\Person;
 use App\Projects\Project;
+use App\Teams\SocialPlattform;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
@@ -17,18 +18,20 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Link
  * @property string $Type
  * @property int $ParentID
+ * @property int $SocialPlattformID
  * @method \App\Teams\Person Parent()
+ * @method \App\Teams\SocialPlattform SocialPlattform()
  */
 class PersonSocialLink extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
         "Link" => "Varchar(255)",
-        "Type" => "Varchar(255)",
     ];
 
     private static $has_one = [
         "Parent" => Person::class,
+        "SocialPlattform" => SocialPlattform::class,
     ];
 
     private static $default_sort = "Title ASC";
@@ -36,16 +39,14 @@ class PersonSocialLink extends DataObject
     private static $field_labels = [
         "Title" => "Titel",
         "Link" => "Link",
-        "Type" => "Plattform",
     ];
 
     private static $summary_fields = [
         "Title" => "Titel",
-        "Type" => "Plattform",
     ];
 
     private static $searchable_fields = [
-        "Title", "Type"
+        "Title"
     ];
 
     private static $table_name = "PersonSocialLink";
@@ -84,6 +85,7 @@ class PersonSocialLink extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName("ParentID");
         return $fields;
     }
 }

@@ -2,6 +2,7 @@
 namespace App\Teams;
 
 use App\Teams\Team;
+use App\Teams\SocialPlattform;
 use SilverStripe\Admin\ModelAdmin;
 
 /**
@@ -13,6 +14,7 @@ class TeamAdmin extends ModelAdmin
 
     private static $managed_models = array (
         Team::class,
+        SocialPlattform::class,
     );
 
     private static $url_segment = "teams";

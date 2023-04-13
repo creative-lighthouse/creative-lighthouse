@@ -20,6 +20,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $FinishDate
  * @property string $Status
  * @property string $Description
+ * @property string $Location
  * @property string $LinkTitle
  * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
  * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
@@ -42,7 +43,7 @@ class Project extends DataObject
         "Teams" => Team::class,
     ];
 
-    private static $default_sort = "StartDate ASC";
+    private static $default_sort = "StartDate DESC";
 
     private static $field_labels = [
         "Title" => "Titel",

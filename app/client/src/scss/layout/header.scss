@@ -51,6 +51,7 @@
                 border: 1px solid transparent;
                 transition: border 0.2s ease-in-out;
                 text-transform: uppercase;
+                border-radius: 20px;
 
                 &:before {
                     content: "";
@@ -60,16 +61,18 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    top: 100%;
+                    top: 0;
                     z-index: -1;
-                    transition: top 0.09s ease-in;
+                    transition: clip-path 0.09s ease-in;
+                    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+                    border-radius: 20px;
                 }
 
                 &:hover {
                     border: 1px solid $ColorWhite;
 
                     &:before {
-                        top: 0;
+                        clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
                     }
                 }
 

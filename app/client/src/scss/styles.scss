@@ -50,6 +50,7 @@ a{
         position: relative;
         text-transform: uppercase;
         transition: all 0.2s ease-in-out;
+        border-radius: 20px;
 
         &:after {
             content: "";
@@ -59,9 +60,11 @@ a{
             bottom: 0;
             left: 0;
             right: 0;
-            top: 100%;
+            top: 0;
             z-index: -1;
-            transition: top 0.09s ease-in;
+            transition: clip-path 0.09s ease-in;
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+            border-radius: 20px;
         }
 
         &:before{
@@ -82,6 +85,7 @@ a{
 
             &:after {
                 top: 0;
+                clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
             }
 
             &:before{
@@ -93,5 +97,35 @@ a{
         @include media("<=smartphone") {
             width: 100%;
         }
+    }
+}
+
+
+.swiper{
+    .swiper-button-next{
+        &::after{
+            color: $ColorWhite;
+        }
+    }
+
+    .swiper-button-prev{
+        &::after{
+            color: $ColorWhite;
+        }
+    }
+}
+
+.social_link{
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    background-color: $ColorWater;
+    mask-size: 100% 100%;
+    transition: 0.2s ease-in-out;
+    transform: scale(1);
+    margin: 10px;
+
+    &:hover{
+        transform: scale(1.1);
     }
 }

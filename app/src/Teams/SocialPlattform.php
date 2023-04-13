@@ -2,40 +2,55 @@
 
 namespace App\Teams;
 
-use App\Teams\Team;
+use App\Projects\Project;
+use SilverStripe\Assets\Image;
+use App\Teams\PersonSocialLink;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Docs\Docs
  *
  * @property string $Title
- * @property string $Link
- * @property int $ParentID
- * @property int $SocialPlattformID
- * @method \App\Teams\Team Parent()
- * @method \App\Teams\SocialPlattform SocialPlattform()
+ * @property string $MainLink
+ * @property int $Importance
+ * @property int $IconID
+ * @method \SilverStripe\Assets\Image Icon()
  */
-class TeamSocialLink extends DataObject
+class SocialPlattform extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "Link" => "Varchar(255)",
+        "MainLink" => "Varchar(512)",
+        "Importance" => "Int",
     ];
 
     private static $has_one = [
-        "Parent" => Team::class,
-        "SocialPlattform" => SocialPlattform::class,
+        "Icon" => Image::class,
     ];
 
-    private static $default_sort = "Title ASC";
+    private static $owns = [
+        "Icon",
+    ];
+
+    private static $belongs_many = [
+        "PersonSocialLink" => PersonSocialLink::class,
+        "TeamSocialLink" => TeamSocialLink::class,
+    ];
+
+    private static $default_sort = "Importance DESC, Title ASC";
 
     private static $field_labels = [
         "Title" => "Titel",
-        "Link" => "Link",
+        "MainLink" => "Hauptlink",
+        "Icon" => "Icon",
+        "Importance" => "Wichtigkeit",
     ];
 
     private static $summary_fields = [
+        "Importance" => "Wichtigkeit",
         "Title" => "Titel",
     ];
 
@@ -43,12 +58,12 @@ class TeamSocialLink extends DataObject
         "Title"
     ];
 
-    private static $table_name = "TeamSocialLink";
+    private static $table_name = "SocialPlattform";
 
-    private static $singular_name = "Sozialer Link";
-    private static $plural_name = "Soziale Links";
+    private static $singular_name = "Soziale Plattform";
+    private static $plural_name = "Soziale Plattformen";
 
-    private static $url_segment = "teamsociallink";
+    private static $url_segment = "socialplattform";
 
     public function canView($member = null)
     {
@@ -76,10 +91,14 @@ class TeamSocialLink extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    public function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+    }
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName("ParentID");
         return $fields;
     }
 }
