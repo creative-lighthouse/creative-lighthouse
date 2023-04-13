@@ -14,16 +14,23 @@ $ElementalArea
         </div>
         <div class="section_teamslist">
             <% loop $Persons %>
-                <a href="$Link" class="teamitem_wrap">
+                <div  class="teamitem_wrap">
                     <div class="teamitem">
-                        <div class="teamitem_image">
+                        <a href="$Link" class="teamitem_image">
                             <% if $Image %>
                                 <img src="$Image.FocusFill(400, 400).URL" alt="$Title" />
                             <% end_if %>
-                        </div>
+                        </a>
                         <h3>$Title</h3>
+                        <% if $SocialLinks %>
+                            <div class="section_socials">
+                                <% loop $SocialLinks %>
+                                    <a target="_blank" href="$Link" class="social_link" style="-webkit-mask-image: url($SocialPlattform.Icon.FitMax(100,100).URL);" alt="$Title"></a>
+                                <% end_loop %>
+                            </div>
+                        <% end_if %>
                     </div>
-                </a>
+                </div>
             <% end_loop %>
         </div>
     </div>

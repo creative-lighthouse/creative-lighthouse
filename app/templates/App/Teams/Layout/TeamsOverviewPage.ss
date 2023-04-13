@@ -16,10 +16,19 @@ $ElementalArea
             <% loop $Teams %>
                 <div class="teamitem_wrap">
                     <div class="teamitem" style="background-image: url($Image.FocusFill(1000,800).URL);">
-                        <a class="teamitem_text" href="$Link">
-                            <img src="$Icon.Fit(50,50).URL" alt="$Title"/>
-                            <h2>$Title</h2>
-                        </a>
+                        <div class="teamitem_topline">
+                            <a class="teamitem_text" href="$Link">
+                                <img src="$Icon.Fit(50,50).URL" alt="$Title"/>
+                                <h2>$Title</h2>
+                            </a>
+                            <% if $SocialLinks %>
+                                <div class="socials">
+                                    <% loop $SocialLinks.Limit(3) %>
+                                        <a target="_blank" href="$Link" class="social_link" style="-webkit-mask-image: url($SocialPlattform.Icon.FitMax(100,100).URL);" alt="$Title"></a>
+                                    <% end_loop %>
+                                </div>
+                            <% end_if %>
+                        </div>
 
                         <div class="teamitem_members">
                             <% loop $Teammembers %>

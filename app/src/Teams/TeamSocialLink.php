@@ -11,6 +11,7 @@ use SilverStripe\Security\Permission;
  *
  * @property string $Title
  * @property string $Link
+ * @property string $Importance
  * @property int $ParentID
  * @property int $SocialPlattformID
  * @method \App\Teams\Team Parent()
@@ -21,6 +22,7 @@ class TeamSocialLink extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Link" => "Varchar(255)",
+        "Importance" => "Varchar(255)"
     ];
 
     private static $has_one = [
@@ -28,7 +30,7 @@ class TeamSocialLink extends DataObject
         "SocialPlattform" => SocialPlattform::class,
     ];
 
-    private static $default_sort = "Title ASC";
+    private static $default_sort = "Importance DESC, Title ASC";
 
     private static $field_labels = [
         "Title" => "Titel",

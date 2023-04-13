@@ -16,7 +16,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  *
  * @property string $Title
  * @property string $Link
- * @property string $Type
+ * @property string $Importance
  * @property int $ParentID
  * @property int $SocialPlattformID
  * @method \App\Teams\Person Parent()
@@ -27,6 +27,7 @@ class PersonSocialLink extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Link" => "Varchar(255)",
+        "Importance" => "Varchar(255)"
     ];
 
     private static $has_one = [
@@ -34,7 +35,7 @@ class PersonSocialLink extends DataObject
         "SocialPlattform" => SocialPlattform::class,
     ];
 
-    private static $default_sort = "Title ASC";
+    private static $default_sort = "Importance DESC, Title ASC";
 
     private static $field_labels = [
         "Title" => "Titel",

@@ -23,7 +23,7 @@
                 <% if $SocialLinks %>
                     <div class="section_socials">
                         <% loop $SocialLinks %>
-                            <a href="$Link" class="social_link" style="-webkit-mask-image: url($SocialPlattform.Icon.FitMax(100,100).URL);" alt="$Title"></a>
+                            <a target="_blank" href="$Link" class="social_link" style="-webkit-mask-image: url($SocialPlattform.Icon.FitMax(100,100).URL);" alt="$Title"></a>
                         <% end_loop %>
                     </div>
                 <% end_if %>

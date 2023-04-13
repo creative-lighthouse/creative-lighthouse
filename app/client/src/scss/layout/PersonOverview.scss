@@ -7,10 +7,12 @@
             margin-bottom: 40px;
 
             .teamitem_wrap{
+            .teamitem{
+
                 padding: 10px;
-                .teamitem{
                     text-align: center;
                     .teamitem_image{
+                        display: block;
                         width: 100%;
                         aspect-ratio: 1/1;
                         overflow: hidden;
@@ -22,10 +24,23 @@
                             height: 100%;
                             object-fit: cover;
                         }
+
+                        .placeholder{
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                        }
                     }
 
                     h3{
                         margin-top: 10px;
+                    }
+
+                    .section_socials{
+                        .social_link{
+                            width: 30px;
+                            height: 30px;
+                        }
                     }
                 }
             }

@@ -17,22 +17,53 @@
                     margin: 20px 0;
                     border-radius: 20px;
 
-                    .teamitem_text{
+                    .teamitem_topline{
                         display: flex;
-                        padding: 20px;
                         justify-content: flex-start;
                         align-items: center;
-                        gap: 20px;
 
-                        .teammember_image{
-                            display: block;
-                            justify-content: center;
+                        .teamitem_text{
+                            display: flex;
+                            padding: 20px;
+                            justify-content: flex-start;
                             align-items: center;
-                            aspect-ratio: 1/1;
+                            gap: 20px;
+
+                            .teammember_image{
+                                display: block;
+                                justify-content: center;
+                                align-items: center;
+                                aspect-ratio: 1/1;
+                            }
+
+                            h2{
+                                color: $ColorWhite;
+                            }
                         }
 
-                        h2{
-                            color: $ColorWhite;
+                        .socials{
+                            margin: 15px 20px 10px 0px;
+
+                            .social_link{
+                                background-color: $ColorWhite;
+                                opacity: 0.5;
+                                width: 30px;
+                                height: 30px;
+                                margin: 5px;
+
+                                &:hover{
+                                    opacity: 1;
+                                }
+                            }
+
+                            @include media("<=medium"){
+                                margin: -10px 20px 10px 20px;
+                            }
+                        }
+
+                        @include media("<=medium"){
+                            flex-direction: column;
+                            align-items: flex-start;
                         }
                     }
 
