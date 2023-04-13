@@ -9,6 +9,9 @@
         .swiper{
             .swiper-wrapper{
                 .swiper-slide{
+                    border-radius: 20px;
+                    overflow: hidden;
+
                     a{
                         display: block;
                         height: 400px;
