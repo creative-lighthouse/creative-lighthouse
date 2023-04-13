@@ -27,7 +27,7 @@ class PersonSocialLink extends DataObject
     private static $db = [
         "Title" => "Varchar(255)",
         "Link" => "Varchar(255)",
-        "Importance" => "Varchar(255)"
+        "Importance" => "Int"
     ];
 
     private static $has_one = [
