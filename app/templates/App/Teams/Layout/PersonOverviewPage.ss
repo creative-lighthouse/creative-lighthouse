@@ -22,9 +22,9 @@ $ElementalArea
                             <% end_if %>
                         </a>
                         <h3>$Title</h3>
-                        <% if $SocialLinks.Limit(3) %>
+                        <% if $SocialLinks %>
                             <div class="section_socials">
-                                <% loop $SocialLinks %>
+                                <% loop $SocialLinks.Limit(3) %>
                                     <a target="_blank" href="$Link" class="social_link" style="-webkit-mask-image: url($SocialPlattform.Icon.FitMax(100,100).URL);" alt="$Title"></a>
                                 <% end_loop %>
                             </div>
