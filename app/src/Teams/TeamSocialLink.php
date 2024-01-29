@@ -11,7 +11,7 @@ use SilverStripe\Security\Permission;
  *
  * @property string $Title
  * @property string $Link
- * @property string $Importance
+ * @property int $Importance
  * @property int $ParentID
  * @property int $SocialPlattformID
  * @method \App\Teams\Team Parent()
