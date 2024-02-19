@@ -1,16 +1,23 @@
-$maxWidth: 1200px;
-$maxWidthContent: 980px;
+$maxWidth: 1000px;
+$maxWidthContent: 1000px;
+
+$borderRadius: 20px;
 
 $breakpoints: (
   'smartphone': 580px,
   'medium': 700px,
-  'desktop': 1200px
+  'desktop': 1200px,
+  'maxWidth': $maxWidth
 );
 
 $ColorPrimary: #b38007;
 $ColorSecondary: #000000;
-$ColorSand: #DDC3B2;
+$ColorGray: #252429;
+$ColorDarkGray: #19181b;
 $ColorWater: #284157;
 
-$ColorBlack: #131F42;
+$ColorBlack: #0a0a0a;
 $ColorWhite: #FFF;
+$ColorWhiteTrans: #ffffff79;
+
+$ColorFont: $ColorWhite;

@@ -1,0 +1,58 @@
+.section.section--waveitems{
+    .section_content{
+        .section_content_assets{
+            .asset_type{
+                .asset_type_list{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: -20px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+.asset_card{
+    width: calc(100% / 2);
+    padding: 10px;
+
+    .asset_card_wrap{
+        background-color: $ColorDarkGray;
+        display: flex;
+        border-radius: $borderRadius;
+
+        .asset_card_image{
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            display: block;
+
+            .model-viewer{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .asset_card_content{
+            width: 50%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+
+            .asset_card_download {
+                background-color: $ColorBlack;
+                color: $ColorWhite;
+                border-radius: $borderRadius;
+                padding: 10px 20px;
+                transition: 0.3s ease-in-out;
+
+                &:hover{
+                    background-color: $ColorGray;
+                }
+            }
+        }
+    }
+}

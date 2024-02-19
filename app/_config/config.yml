@@ -1,6 +1,3 @@
-App\Projects\Project:
-  extensions:
-    - PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
-  gallery-title: Galerie
-  gallery-cms-tab: Galerie
-  content-cms-tab: Top Content
+SilverStripe\Assets\File:
+  allowed_extensions:
+    - tif

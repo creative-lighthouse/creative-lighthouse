@@ -1,7 +1,7 @@
 {
-    "name": "creative-lighthouse/creative-lighthouse",
+    "name": "sp-universe/sp-universe",
     "type": "silverstripe-recipe",
-    "description": "Website of creative lighthouse",
+    "description": "Website of SP Universe",
     "require": {
         "php": "^8.2",
         "silverstripe/recipe-plugin": "^2",
@@ -11,16 +11,10 @@
         "colymba/gridfield-bulk-editing-tools": "^4.0",
         "undefinedoffset/sortablegridfield": "^2.2",
         "jonom/focuspoint": "^5.0",
-        "tractorcow/silverstripe-fluent": "^7",
+        "tractorcow/silverstripe-fluent": "^7.0",
         "silverstripe/login-forms": "^5.1",
-        "silverstripe/linkfield": "3.x-dev",
-        "purplespider/silverstripe-basic-gallery-extension": "^4"
-    },
-    "repositories": {
-        "silverstripe/linkfield": {
-          "type": "git",
-          "url": "https://github.com/silverstripe/silverstripe-linkfield.git"
-        }
+        "purplespider/silverstripe-basic-gallery-extension": "^4",
+        "maennchen/zipstream-php": "^3.1"
     },
     "require-dev": {
         "silverleague/ideannotator": "^3",

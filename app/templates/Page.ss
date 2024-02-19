@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="$Mix("/css/styles.min.css")">
 </head>
 <body>
-<% include Header %>
-$Layout
-<script src="$Mix("/js/main.js")"></script>
-<% include Footer %>
-</body>
+    <% include Header %>
+        $Layout
+        <script src="$Mix("/js/main.js")"></script>
+    <% include Footer %>
+    </body>
 </html>

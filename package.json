@@ -1,8 +1,8 @@
 {
-  "name": "silverstripe-template",
+  "name": "sp-universe-website",
   "version": "1.0.0",
   "main": "main.js",
-  "author": "Adiwidjaja Teamworks GmbH",
+  "author": "Steven Paw",
   "license": "MIT",
   "scripts": {
     "dev": "yarn development",
@@ -22,6 +22,7 @@
     "cross-env": "^7.0.3",
     "glightbox": "^3.0.9",
     "include-media": "^1.4.10",
-    "swiper": "^9.0.4"
+    "swiper": "^9.0.4",
+    "three": "^0.161.0"
   }
 }

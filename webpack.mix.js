@@ -16,7 +16,7 @@ mix.setPublicPath(dist)
     .sourceMaps(true)
     .version()
     .browserSync({
-        proxy: 'http://localhost/creative-lighthouse/public',
+        proxy: 'http://localhost/sp-universe-website/public',
         files: [
             "public/_resources/app/client/dist/css/*.css",
             "public/_resources/app/client/dist/js/*.js",

@@ -10,25 +10,20 @@
 
 @import "layout/footer.scss";
 @import "layout/header.scss";
-@import "layout/HeaderImage.scss";
+@import "layout/starfield.scss";
+@import "layout/waves.scss";
 
-@import "layout/TextImageElement.scss";
-@import "layout/TextElement.scss";
-@import "layout/HeaderElement.scss";
-@import "layout/ProjectsElement.scss";
-@import "layout/ProjectDetails.scss";
-@import "layout/TeamOverview.scss";
-@import "layout/TeamDetails.scss";
-@import "layout/PersonOverview.scss";
-@import "layout/PersonDetails.scss";
+@import "elements/TextImageElement.scss";
+@import "elements/BannerElement.scss";
+@import "elements/TeaserElement.scss";
 
 body{
-    background-color: $ColorSand;
+    background-color: $ColorGray;
 }
 
 .section {
     max-width: $maxWidth;
-    margin: 50px auto;
+    margin: 40px auto;
 }
 
 .section_content{

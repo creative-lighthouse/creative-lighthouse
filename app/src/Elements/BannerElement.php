@@ -10,16 +10,14 @@ use SilverStripe\Forms\DropdownField;
  * Class \App\Elements\TextImageElement
  *
  * @property string $Text
- * @property string $Variant
  * @property int $ImageID
  * @method \SilverStripe\Assets\Image Image()
  */
-class TextImageElement extends BaseElement
+class BannerElement extends BaseElement
 {
 
     private static $db = [
         "Text" => "HTMLText",
-        "Variant" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -35,7 +33,7 @@ class TextImageElement extends BaseElement
         "Image" => "Bild",
     ];
 
-    private static $table_name = 'TextImageElement';
+    private static $table_name = 'BannerElement';
     private static $icon = 'font-icon-block-promo-3';
 
     private static $translate = [
@@ -44,16 +42,12 @@ class TextImageElement extends BaseElement
 
     public function getType()
     {
-        return "Text+Bild";
+        return "Banner";
     }
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->replaceField('Variant', new DropdownField('Variant', 'Variante', [
-            "" => "Bild links",
-            "image-right" => "Bild rechts",
-        ]));
         return $fields;
     }
 }

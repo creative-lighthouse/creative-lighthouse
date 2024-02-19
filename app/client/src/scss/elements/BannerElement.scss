@@ -1,0 +1,55 @@
+.section.section--banner{
+    .section_content{
+        position: relative;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.8);
+        border-radius: $borderRadius;
+
+        .banner_image{
+            width: 100%;
+            height: 100%;
+            border-radius: $borderRadius;
+            display: block;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            @include media("<=maxWidth") {
+                border-radius: 0px;
+            }
+        }
+
+        .banner_text{
+            position: absolute;
+            padding-top: 10px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            color: $ColorWhite;
+            backdrop-filter: brightness(0.1);
+            border-radius: $borderRadius;
+            text-shadow: 0 0 5px rgba(0,0,0,1);
+            box-shadow: 0 0 50px 0 rgba(0,0,0,0.8);
+            padding: 10px;
+
+            @include media("<=medium") {
+                width: 95%;
+                position: relative;
+                transform: translateX(-50%);
+                top: -40px;
+                left: 50%;
+            }
+        }
+
+        @include media("<=desktop") {
+            padding: 0;
+            box-shadow: none;
+        }
+    }
+}
