@@ -2,8 +2,8 @@
     <div class="header_nav">
         <a href="" class="nav_brand">
             <img src="_resources/app/client/icons/spu-logo.svg">
+            <h1 class="nav_title">SP Universe</h1>
         </a>
-        <h1 class="nav_title">SP Universe</h1>
         <div class="nav_menu" id="navMenu">
             <% loop $Menu(1) %>
                 <% if $MenuPosition == "main1" %>

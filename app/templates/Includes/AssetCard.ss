@@ -5,7 +5,8 @@
         </div>
         <div class="asset_card_content">
             <h3 class="asset_card_title">$Title</h3>
-            <a href="$Page.Link()/download/$ID" class="asset_card_download">Download</a>
+            <a href="$Page.Link()/view/$ID" class="asset_card_button asset_card_view">View</a>
+            <a href="$Page.Link()/download/$ID" class="asset_card_button asset_card_download">Download</a>
         </div>
     </div>
 </div>

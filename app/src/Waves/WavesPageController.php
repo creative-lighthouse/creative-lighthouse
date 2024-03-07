@@ -2,6 +2,7 @@
 namespace App\Waves;
 
 //use jamesbolitho\frontenduploadfield\UploadField;
+use SilverStripe\ORM\PaginatedList;
 use ZipArchive;
 use PageController;
 use ZipStream\ZipStream;
@@ -26,9 +27,22 @@ class WavesPageController extends PageController
         return WavesAssetType::get();
     }
 
-    public function getWaveProducts()
+    public function getAssets()
     {
-        return WavesProduct::get();
+        $paginatedList = new PaginatedList(WavesProduct::get(), $this->getRequest());
+        return $paginatedList->setPageLength(20);
+    }
+
+    public function view()
+    {
+        $asset = WavesProduct::get()->byID($this->getRequest()->param('ID'));
+
+        if ($asset) {
+            return [
+                'AssetType' => $asset->AssetType->Title,
+                'Asset' => $asset,
+            ];
+        }
     }
 
     public function download()

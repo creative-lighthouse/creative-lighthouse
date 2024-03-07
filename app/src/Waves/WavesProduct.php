@@ -3,6 +3,7 @@
 namespace App\Waves;
 
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
 use ZipArchive;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
@@ -14,39 +15,49 @@ use SilverStripe\Forms\CheckboxSetField;
  * Class \App\Database\Experience
  *
  * @property string $Title
+ * @property string $Description
  * @property int $AssetTypeID
  * @property int $AmbientOcclusionTextureID
+ * @property int $AmbientOcclusionPNGTextureID
  * @property int $DiffuseTextureID
  * @property int $DisplacementTextureID
+ * @property int $DisplacementPNGTextureID
  * @property int $NormalTextureID
  * @property int $SpecularTextureID
  * @method \App\Waves\WavesAssetType AssetType()
- * @method \SilverStripe\Assets\Image AmbientOcclusionTexture()
- * @method \SilverStripe\Assets\Image DiffuseTexture()
- * @method \SilverStripe\Assets\Image DisplacementTexture()
- * @method \SilverStripe\Assets\Image NormalTexture()
- * @method \SilverStripe\Assets\Image SpecularTexture()
+ * @method \SilverStripe\Assets\File AmbientOcclusionTexture()
+ * @method \SilverStripe\Assets\File AmbientOcclusionPNGTexture()
+ * @method \SilverStripe\Assets\File DiffuseTexture()
+ * @method \SilverStripe\Assets\File DisplacementTexture()
+ * @method \SilverStripe\Assets\File DisplacementPNGTexture()
+ * @method \SilverStripe\Assets\File NormalTexture()
+ * @method \SilverStripe\Assets\File SpecularTexture()
  * @method \SilverStripe\ORM\ManyManyList|\App\Waves\WavesCategory[] Categories()
  */
 class WavesProduct extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
+        "Description" => "HTMLText",
     ];
 
     private static $has_one = [
         "AssetType" => WavesAssetType::class,
-        "AmbientOcclusionTexture" => Image::class,
-        "DiffuseTexture" => Image::class,
-        "DisplacementTexture" => Image::class,
-        "NormalTexture" => Image::class,
-        "SpecularTexture" => Image::class,
+        "AmbientOcclusionTexture" => File::class,
+        "AmbientOcclusionPNGTexture" => File::class,
+        "DiffuseTexture" => File::class,
+        "DisplacementTexture" => File::class,
+        "DisplacementPNGTexture" => File::class,
+        "NormalTexture" => File::class,
+        "SpecularTexture" => File::class,
     ];
 
     private static $owns = [
         "AmbientOcclusionTexture",
+        "AmbientOcclusionPNGTexture",
         "DiffuseTexture",
         "DisplacementTexture",
+        "DisplacementPNGTexture",
         "NormalTexture",
         "SpecularTexture",
     ];

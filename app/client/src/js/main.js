@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if(modelViewers.length > 0) {
         modelViewers.forEach(function (modelViewer) {
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera(50, modelViewer.offsetWidth / modelViewer.offsetHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer( { alpha: true } );
             renderer.setSize(modelViewer.offsetWidth, modelViewer.offsetHeight);
             modelViewer.appendChild(renderer.domElement);
@@ -85,21 +85,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             const light = new THREE.SpotLight(0xffffff, 1);
             scene.add(light);
 
-            camera.position.set( 0, 1, 1);
+            camera.position.set( 0, 1, 1.5);
             controls.update();
 
             function animate() {
                 requestAnimationFrame( animate );
-                cube.rotation.x += 0.001;
-                cube.rotation.y += 0.001;
                 controls.update();
                 light.position.set( camera.position.x, camera.position.y, camera.position.z );
                 light.direction = camera.direction;
                 renderer.render( scene, camera );
             }
             animate();
+
+            window.addEventListener( 'resize', onWindowResize, false );
+
+            function onWindowResize(){
+
+                camera.aspect = modelViewer.offsetWidth / modelViewer.offsetHeight;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(modelViewer.offsetWidth, modelViewer.offsetHeight);
+            }
         });
-
-
     }
 });

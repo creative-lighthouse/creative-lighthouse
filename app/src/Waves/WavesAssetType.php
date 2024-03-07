@@ -3,6 +3,7 @@
 namespace App\Waves;
 
 use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Security\Permission;
 
 /**
@@ -58,6 +59,7 @@ class WavesAssetType extends DataObject
 
     public function getAssets()
     {
-        return WavesProduct::get()->filter(["AssetTypeID" => $this->ID]);
+        $paginatedList = PaginatedList::create(WavesProduct::get()->filter(["AssetTypeID" => $this->ID]), $this->getRequest());
+        return $paginatedList;
     }
 }
