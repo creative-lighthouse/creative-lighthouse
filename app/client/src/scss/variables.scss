@@ -14,3 +14,13 @@ $ColorWater: #284157;
 
 $ColorBlack: #131F42;
 $ColorWhite: #FFF;
+
+html{
+    --ColorPrimary: $ColorPrimary;
+    --ColorSecondary: $ColorSecondary;
+    --ColorSand: $ColorSand;
+    --ColorWater: $ColorWater;
+
+    --ColorBlack: $ColorBlack;
+    --ColorWhite: $ColorWhite;
+}

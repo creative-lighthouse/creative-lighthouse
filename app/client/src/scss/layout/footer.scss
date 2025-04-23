@@ -3,18 +3,18 @@
   margin-top: 80px;
   padding: 37px 20px;
   flex-direction: column;
-  background-color: $ColorSecondary;
+  background-color: var(--ColorSecondary);
 }
 
 .footer_content {
-  max-width: $maxWidth;
+  max-width: 1600px;
   margin-right: auto;
   margin-left: auto;
   justify-content: space-between;
   flex: 1;
 
   a {
-    color: $ColorWhite;
+    color: var(--ColorWhite);
   }
 
   @media screen and (min-width: 992px) {
@@ -23,7 +23,7 @@
 }
 
 .footer_text {
-  color: $ColorWhite;
+  color: var(--ColorWhite);
   font-size: 17px;
   text-decoration: none;
 }

@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <% base_tag %>
-    $MetaTags(false)
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8">
-    <title>$Title - $SiteConfig.Title</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1e3755">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="$Mix("/css/styles.min.css")">
-</head>
+<html lang="$CurrentLocale">
+    <head>
+        <% base_tag %>
+        $MetaTags(false)
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8">
+        <title>$Title - $SiteConfig.Title</title>
+        $ViteClient.RAW
+        <link rel="stylesheet" href="$Vite('app/client/src/scss/main.scss')">
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="{$Title}" />
+        <meta name="twitter:url" content="{$Link}" />
+        <meta name="twitter:title" content="{$Title} - {$SiteConfig.Title}" />
+        <meta name="twitter:description" content="{$Title}" />
+        <meta name="twitter:image" content="app/client/images/SocialImage.png" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{$Title} - {$SiteConfig.Title}" />
+        <meta property="og:description" content="{$Title}" />
+        <meta property="og:site_name" content="{$SiteConfig.Title}" />
+        <meta property="og:url" content="{$Link}" />
+        <meta property="og:image" content="app/client/images/SocialImage.png" />
+
+        <link rel="manifest" href="site.webmanifest" />
+
+        <link rel="apple-touch-icon" sizes="120x120" href="_resources/app/client/icons/fav/apple_touch_icon_120.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="_resources/app/client/icons/fav/apple_touch_icon_180.png" />
+        <link rel="mask-icon" href="_resources/app/client/icons/fav/safari-pinned-tab.svg" color="#4E9DAE" />
+        <meta name="msapplication-TileColor" content="#d54f27" />
+        <link rel="apple-touch-icon" sizes="180x180" href="_resources/app/client/icons/fav/safari-pinned-tab.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="_resources/app/client/icons/fav/favicon_32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="_resources/app/client/icons/fav/favicon_16.png" />
+    </head>
 <body>
 <% include Header %>
 $Layout
-<script src="$Mix("/js/main.js")"></script>
+<script type="module" src="$Vite('app/client/src/js/main.js')"></script>
 <% include Footer %>
 </body>
 </html>

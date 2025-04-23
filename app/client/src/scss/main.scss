@@ -1,6 +1,6 @@
 @import "include-media";
-@import "~glightbox/dist/css/glightbox.css";
-@import 'swiper/swiper-bundle.css';
+@import "glightbox/dist/css/glightbox.css";
+@import 'swiper/css/bundle';
 
 @import "fonts";
 @import "normalize";
@@ -23,7 +23,7 @@
 @import "layout/PersonDetails.scss";
 
 body{
-    background-color: $ColorSand;
+    background-color: var(--ColorSand);
 }
 
 .section {
