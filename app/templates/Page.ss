@@ -34,10 +34,14 @@
         <link rel="icon" type="image/png" sizes="32x32" href="_resources/app/client/icons/fav/favicon_32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="_resources/app/client/icons/fav/favicon_16.png" />
     </head>
-<body>
-<% include Header %>
-$Layout
-<script type="module" src="$Vite('app/client/src/js/main.js')"></script>
-<% include Footer %>
-</body>
+    <body>
+        <% if $SiteConfig.ComingSoonMode %>
+            <% include ComingSoonPage %>
+        <% else %>
+            <% include Header %>
+            $Layout
+            <% include Footer %>
+        <% end_if %>
+        <script type="module" src="$Vite('app/client/src/js/main.js')"></script>
+    </body>
 </html>
