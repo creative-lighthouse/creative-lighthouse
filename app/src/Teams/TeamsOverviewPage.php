@@ -1,9 +1,9 @@
 <?php
 namespace App\Teams;
 
+use Override;
 use Page;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use SilverStripe\Forms\TextField;
 
 /**
  * Class \App\Docs\DocsPage
@@ -18,6 +18,7 @@ class TeamsOverviewPage extends Page
 
     private static $table_name = "TeamsOverviewPage";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

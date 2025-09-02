@@ -1,7 +1,7 @@
 name: creative-lighthouse
 type: silverstripe
 docroot: public
-php_version: "8.3"
+php_version: "8.4"
 webserver_type: apache-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -17,6 +17,12 @@ web_extra_exposed_ports:
       container_port: 5173
       http_port: 5172
       https_port: 5173
+hooks:
+    post-start:
+        - exec: bash -c 'yarn'
+        - exec: bash -c 'yarn build'
+        - exec: bash -c 'composer install'
+        - exec: bash -c 'sake dev/build'
 corepack_enable: false
 # Key features of DDEV's config.yaml:
 

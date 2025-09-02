@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 .section.section--HeaderElement{
     max-width: none;
     margin-top: -120px;
@@ -51,7 +53,7 @@
             right: 100px;
             text-align: right;
 
-            color: $ColorWater;
+            color: var(--ColorWater);
             text-shadow: 0 0 20px rgba(256,256,256,1);
 
             .text_title{
@@ -60,7 +62,7 @@
                 font-weight: 900;
                 margin-bottom: 20px;
 
-                @include media("<=desktop") {
+                @include media(max-desktop) {
                     font-size: 40px;
                 }
             }
@@ -71,12 +73,12 @@
                 font-weight: 400;
                 margin-bottom: 15px;
 
-                @include media("<=desktop") {
+                @include media(max-desktop) {
                     font-size: 25px;
                 }
             }
 
-            @include media("<=desktop") {
+            @include media(max-desktop) {
                 position: relative;
                 top: -20px;
                 right: 0;
@@ -87,7 +89,7 @@
         }
     }
 
-    @include media("<=medium") {
+    @include media(max-medium) {
         margin-top: 0px;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Elements;
 
+use Override;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
@@ -16,7 +17,7 @@ use SilverStripe\Forms\DropdownField;
  * @property string $ButtonText
  * @property string $ButtonLink
  * @property int $ImageID
- * @method \SilverStripe\Assets\Image Image()
+ * @method Image Image()
  */
 class TextImageElement extends BaseElement
 {
@@ -48,11 +49,13 @@ class TextImageElement extends BaseElement
     private static $table_name = 'TextImageElement';
     private static $icon = 'font-icon-block-promo-3';
 
+    #[Override]
     public function getType()
     {
         return "Text+Bild";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

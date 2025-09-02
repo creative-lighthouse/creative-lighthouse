@@ -2,12 +2,14 @@
 
 namespace App\Projects;
 
+use Override;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ManyManyList;
+use TractorCow\Fluent\Extension\FluentExtension;
 use App\Teams\Team;
 use App\Projects\ProjectAdmin;
-use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use App\Projects\ProjectOverviewPage;
-use App\Teams\Person;
 use SilverStripe\Security\Permission;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
@@ -22,9 +24,9 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Description
  * @property string $Location
  * @property string $LinkTitle
- * @method \SilverStripe\ORM\DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
- * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
- * @mixin \TractorCow\Fluent\Extension\FluentExtension
+ * @method DataList|\PurpleSpider\BasicGalleryExtension\PhotoGalleryImage[] PhotoGalleryImages()
+ * @method ManyManyList|Team[] Teams()
+ * @mixin FluentExtension
  * @mixin \PurpleSpider\BasicGalleryExtension\PhotoGalleryExtension
  */
 class Project extends DataObject
@@ -71,21 +73,25 @@ class Project extends DataObject
 
     private static $url_segment = "projects";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -97,6 +103,7 @@ class Project extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -107,6 +114,7 @@ class Project extends DataObject
         parent::onBeforeWrite();
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -119,6 +127,7 @@ class Project extends DataObject
         return $fields;
     }
 
+    #[Override]
     public function CMSEditLink()
     {
         $admin = ProjectAdmin::singleton();

@@ -2,15 +2,16 @@
 
 namespace App\Projects;
 
-use SilverStripe\ORM\GroupedList;
+use Override;
+use SilverStripe\Model\List\GroupedList;
 use SilverStripe\CMS\Controllers\ContentController;
 
 /**
  * Class \PageController
  *
- * @property \App\Projects\ProjectOverviewPage $dataRecord
- * @method \App\Projects\ProjectOverviewPage data()
- * @mixin \App\Projects\ProjectOverviewPage
+ * @property ProjectOverviewPage $dataRecord
+ * @method ProjectOverviewPage data()
+ * @mixin ProjectOverviewPage
  */
 class ProjectOverviewPageController extends ContentController
 {
@@ -18,6 +19,7 @@ class ProjectOverviewPageController extends ContentController
         "view"
     ];
 
+    #[Override]
     protected function init()
     {
         parent::init();
@@ -34,8 +36,8 @@ class ProjectOverviewPageController extends ContentController
     {
         $title = $this->getRequest()->param("ID");
         $article = Project::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Project" => $article,
-        );
+        ];
     }
 }

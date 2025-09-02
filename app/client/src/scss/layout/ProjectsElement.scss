@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 .section.section--ProjectsElement{
     .section_content{
         .section_text{
@@ -35,7 +37,7 @@
                 padding: 10px;
 
                 .projectitem{
-                    background-color: $ColorWater;
+                    background-color: var(--ColorWater);
                     overflow: hidden;
                     aspect-ratio: 1/1;
                     position: relative;
@@ -69,7 +71,7 @@
                             }
                         }
 
-                        @include media("<=smartphone") {
+                        @include media(max-smartphone) {
                             transform: translateY(0);
                         }
                     }
@@ -90,7 +92,7 @@
                             object-fit: cover;
                         }
 
-                        @include media("<=smartphone") {
+                        @include media(max-smartphone) {
                             opacity: 1;
                         }
                     }
@@ -101,7 +103,7 @@
                         left: 0;
                         width: 100%;
                         padding: 80px 20px 20px 20px;
-                        color: $ColorWhite;
+                        color: var(--ColorWhite);
                         background: rgba(0, 0, 0, 0.5);
                         background: linear-gradient(0deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
 
@@ -129,11 +131,11 @@
                 }
             }
 
-            @include media("<=medium") {
+            @include media(max-medium) {
                 grid-template-columns: repeat(2, calc(100% / 2));
             }
 
-            @include media("<=smartphone") {
+            @include media(max-smartphone) {
                 grid-template-columns: repeat(1, calc(100% / 1));
             }
         }

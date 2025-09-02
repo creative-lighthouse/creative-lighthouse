@@ -2,13 +2,11 @@
 
 namespace App\Teams;
 
-use App\Projects\Project;
+use Override;
 use SilverStripe\Assets\Image;
 use App\Teams\PersonSocialLink;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
-use SilverStripe\Forms\CheckboxSetField;
-use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
  * Class \App\Docs\Docs
@@ -17,7 +15,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $MainLink
  * @property int $Importance
  * @property int $IconID
- * @method \SilverStripe\Assets\Image Icon()
+ * @method Image Icon()
  */
 class SocialPlattform extends DataObject
 {
@@ -65,21 +63,25 @@ class SocialPlattform extends DataObject
 
     private static $url_segment = "socialplattform";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -91,11 +93,13 @@ class SocialPlattform extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         parent::onBeforeWrite();
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

@@ -2,13 +2,15 @@
 
 namespace App\Teams;
 
+use Override;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ManyManyList;
+use TractorCow\Fluent\Extension\FluentExtension;
 use App\Projects\Project;
 use SilverStripe\Assets\Image;
 use App\Teams\TeamsOverviewPage;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
-use SilverStripe\LinkField\Models\Link;
-use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
 /**
@@ -20,12 +22,12 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property int $Importance
  * @property int $IconID
  * @property int $ImageID
- * @method \SilverStripe\Assets\Image Icon()
- * @method \SilverStripe\Assets\Image Image()
- * @method \SilverStripe\ORM\DataList|\App\Teams\TeamSocialLink[] SocialLinks()
- * @method \SilverStripe\ORM\ManyManyList|\App\Projects\Project[] Projects()
- * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Person[] Teammembers()
- * @mixin \TractorCow\Fluent\Extension\FluentExtension
+ * @method Image Icon()
+ * @method Image Image()
+ * @method DataList|TeamSocialLink[] SocialLinks()
+ * @method ManyManyList|Project[] Projects()
+ * @method ManyManyList|Person[] Teammembers()
+ * @mixin FluentExtension
  */
 class Team extends DataObject
 {
@@ -87,21 +89,25 @@ class Team extends DataObject
 
     private static $url_segment = "teams";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -113,6 +119,7 @@ class Team extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -123,6 +130,7 @@ class Team extends DataObject
         parent::onBeforeWrite();
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

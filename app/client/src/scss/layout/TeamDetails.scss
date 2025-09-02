@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 .section.section--TeamDetails{
     .section_content{
         margin-top: 120px;
@@ -37,7 +39,7 @@
                         margin-bottom: 10px;
                         padding: 0;
                         aspect-ratio: 1/1;
-                        background-color: $ColorSecondary;
+                        background-color: var(--ColorSecondary);
 
                         img{
                             width: 100%;
@@ -47,11 +49,11 @@
                     }
                 }
 
-                @include media("<=1000px"){
+                @include media(max-desktop){
                     grid-template-columns: repeat(3, calc(100% / 3));
                 }
 
-                @include media("<=medium"){
+                @include media(max-medium){
                     grid-template-columns: repeat(2, calc(100% / 2));
                 }
             }
@@ -74,7 +76,7 @@
                         margin-bottom: 10px;
                         padding: 0;
                         aspect-ratio: 1/1;
-                        background-color: $ColorSecondary;
+                        background-color: var(--ColorSecondary);
 
                         img{
                             width: 100%;
@@ -84,11 +86,11 @@
                     }
                 }
 
-                @include media("<=1000px"){
+                @include media(max-desktop){
                     grid-template-columns: repeat(3, calc(100% / 3));
                 }
 
-                @include media("<=medium"){
+                @include media(max-medium){
                     grid-template-columns: repeat(2, calc(100% / 2));
                 }
             }

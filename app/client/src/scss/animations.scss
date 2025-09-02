@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @keyframes wave {
   0% {
     transform: translateX(0);

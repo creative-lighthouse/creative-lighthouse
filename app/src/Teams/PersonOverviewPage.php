@@ -1,6 +1,7 @@
 <?php
 namespace App\Teams;
 
+use Override;
 use Page;
 
 /**
@@ -14,6 +15,7 @@ class PersonOverviewPage extends Page
 
     private static $table_name = "PersonOverviewPage";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

@@ -2,6 +2,7 @@
 
 namespace App\Teams;
 
+use Override;
 use App\Teams\Team;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
@@ -14,8 +15,8 @@ use SilverStripe\Security\Permission;
  * @property int $Importance
  * @property int $ParentID
  * @property int $SocialPlattformID
- * @method \App\Teams\Team Parent()
- * @method \App\Teams\SocialPlattform SocialPlattform()
+ * @method Team Parent()
+ * @method SocialPlattform SocialPlattform()
  */
 class TeamSocialLink extends DataObject
 {
@@ -52,21 +53,25 @@ class TeamSocialLink extends DataObject
 
     private static $url_segment = "teamsociallink";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -78,6 +83,7 @@ class TeamSocialLink extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

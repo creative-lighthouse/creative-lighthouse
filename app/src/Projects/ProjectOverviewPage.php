@@ -1,8 +1,8 @@
 <?php
 namespace App\Projects;
 
+use Override;
 use Page;
-use SilverStripe\Forms\TextField;
 
 /**
  * Class \App\Docs\DocsPage
@@ -15,6 +15,7 @@ class ProjectOverviewPage extends Page
 
     private static $table_name = "App_Project_ProjectOverviewPage";
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

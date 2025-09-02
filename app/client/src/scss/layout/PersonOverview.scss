@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 .section.section--PersonOverview {
     .section_content {
         .section_teamslist{
@@ -17,7 +19,7 @@
                         aspect-ratio: 1/1;
                         overflow: hidden;
                         border-radius: 50%;
-                        background-color: $ColorSecondary;
+                        background-color: var(--ColorSecondary);
 
                         img{
                             width: 100%;
@@ -46,11 +48,11 @@
                 }
             }
 
-            @include media("<=1000px"){
+            @include media(max-desktop){
                 grid-template-columns: repeat(3, calc((100% / 3) - 20px));
             }
 
-            @include media("<=medium"){
+            @include media(max-medium){
                 grid-template-columns: repeat(2, calc((100% / 2) - 20px));
             }
         }

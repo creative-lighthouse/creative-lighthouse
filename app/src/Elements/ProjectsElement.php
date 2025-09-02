@@ -2,9 +2,9 @@
 
 namespace App\Elements;
 
+use Override;
 use App\Projects\Project;
 use App\Projects\ProjectOverviewPage;
-use SilverStripe\Assets\Image;
 use DNADesign\Elemental\Models\BaseElement;
 
 /**
@@ -26,11 +26,13 @@ class ProjectsElement extends BaseElement
     private static $table_name = 'ProjectsElement';
     private static $icon = 'font-icon-block-content';
 
+    #[Override]
     public function getType()
     {
         return "Projects";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

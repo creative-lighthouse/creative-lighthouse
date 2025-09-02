@@ -1,6 +1,7 @@
 <?php
 namespace App\Teams;
 
+use Override;
 use App\Teams\Team;
 use App\Teams\SocialPlattform;
 use SilverStripe\Admin\ModelAdmin;
@@ -12,10 +13,10 @@ use SilverStripe\Admin\ModelAdmin;
 class TeamAdmin extends ModelAdmin
 {
 
-    private static $managed_models = array (
+    private static $managed_models =  [
         Team::class,
         SocialPlattform::class,
-    );
+    ];
 
     private static $url_segment = "teams";
 
@@ -23,6 +24,7 @@ class TeamAdmin extends ModelAdmin
 
     private static $menu_icon = "app/client/icons/docs.svg";
 
+    #[Override]
     public function init()
     {
         parent::init();

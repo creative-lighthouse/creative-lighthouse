@@ -2,6 +2,7 @@
 
 namespace App\Elements;
 
+use Override;
 use SilverStripe\Assets\Image;
 use DNADesign\Elemental\Models\BaseElement;
 
@@ -13,10 +14,10 @@ use DNADesign\Elemental\Models\BaseElement;
  * @property int $Image2ID
  * @property int $Image3ID
  * @property int $PlaceholderImageID
- * @method \SilverStripe\Assets\Image Image()
- * @method \SilverStripe\Assets\Image Image2()
- * @method \SilverStripe\Assets\Image Image3()
- * @method \SilverStripe\Assets\Image PlaceholderImage()
+ * @method Image Image()
+ * @method Image Image2()
+ * @method Image Image3()
+ * @method Image PlaceholderImage()
  */
 class HeaderElement extends BaseElement
 {
@@ -46,11 +47,13 @@ class HeaderElement extends BaseElement
     private static $table_name = 'HeaderElement';
     private static $icon = 'font-icon-block-content';
 
+    #[Override]
     public function getType()
     {
         return "Header";
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

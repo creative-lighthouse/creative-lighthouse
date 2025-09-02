@@ -2,15 +2,16 @@
 
 namespace App\Teams;
 
+use Override;
 use App\Teams\Team;
 use SilverStripe\CMS\Controllers\ContentController;
 
 /**
  * Class \PageController
  *
- * @property \App\Teams\TeamsOverviewPage $dataRecord
- * @method \App\Teams\TeamsOverviewPage data()
- * @mixin \App\Teams\TeamsOverviewPage
+ * @property TeamsOverviewPage $dataRecord
+ * @method TeamsOverviewPage data()
+ * @mixin TeamsOverviewPage
  */
 class TeamsOverviewPageController extends ContentController
 {
@@ -18,6 +19,7 @@ class TeamsOverviewPageController extends ContentController
         "view"
     ];
 
+    #[Override]
     protected function init()
     {
         parent::init();
@@ -37,8 +39,8 @@ class TeamsOverviewPageController extends ContentController
     {
         $title = $this->getRequest()->param("ID");
         $article = Team::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Team" => $article,
-        );
+        ];
     }
 }

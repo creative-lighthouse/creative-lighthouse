@@ -2,7 +2,10 @@
 
 namespace App\Teams;
 
-use App\Projects\Project;
+use Override;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ManyManyList;
+use TractorCow\Fluent\Extension\FluentExtension;
 use SilverStripe\Assets\Image;
 use App\Teams\PersonSocialLink;
 use SilverStripe\ORM\DataObject;
@@ -17,10 +20,10 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
  * @property string $Description
  * @property string $LinkTitle
  * @property int $ImageID
- * @method \SilverStripe\Assets\Image Image()
- * @method \SilverStripe\ORM\DataList|\App\Teams\PersonSocialLink[] SocialLinks()
- * @method \SilverStripe\ORM\ManyManyList|\App\Teams\Team[] Teams()
- * @mixin \TractorCow\Fluent\Extension\FluentExtension
+ * @method Image Image()
+ * @method DataList|PersonSocialLink[] SocialLinks()
+ * @method ManyManyList|Team[] Teams()
+ * @mixin FluentExtension
  */
 class Person extends DataObject
 {
@@ -71,21 +74,25 @@ class Person extends DataObject
 
     private static $url_segment = "person";
 
+    #[Override]
     public function canView($member = null)
     {
         return true;
     }
 
+    #[Override]
     public function canEdit($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canDelete($member = null)
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function canCreate($member = null, $context = [])
     {
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
@@ -97,6 +104,7 @@ class Person extends DataObject
         return Permission::check('CMS_ACCESS_NewsAdmin', 'any', $member);
     }
 
+    #[Override]
     public function onBeforeWrite()
     {
         if ($this->LinkTitle == "") {
@@ -107,6 +115,7 @@ class Person extends DataObject
         parent::onBeforeWrite();
     }
 
+    #[Override]
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();

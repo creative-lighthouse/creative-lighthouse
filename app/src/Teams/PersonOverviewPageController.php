@@ -2,14 +2,15 @@
 
 namespace App\Teams;
 
+use Override;
 use SilverStripe\CMS\Controllers\ContentController;
 
 /**
  * Class \PageController
  *
- * @property \App\Teams\PersonOverviewPage $dataRecord
- * @method \App\Teams\PersonOverviewPage data()
- * @mixin \App\Teams\PersonOverviewPage
+ * @property PersonOverviewPage $dataRecord
+ * @method PersonOverviewPage data()
+ * @mixin PersonOverviewPage
  */
 class PersonOverviewPageController extends ContentController
 {
@@ -17,6 +18,7 @@ class PersonOverviewPageController extends ContentController
         "people"
     ];
 
+    #[Override]
     protected function init()
     {
         parent::init();
@@ -33,8 +35,8 @@ class PersonOverviewPageController extends ContentController
     {
         $title = $this->getRequest()->param("ID");
         $article = Person::get()->filter("LinkTitle", $title)->first();
-        return array(
+        return [
             "Person" => $article,
-        );
+        ];
     }
 }
