@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33651e95d7cda5285511d6422b13ee74",
+    "content-hash": "ef83964f255fb15ad856cd42065edcdd",
     "packages": [
         {
             "name": "atwx/silverstripe-vitehelper",
@@ -9314,7 +9314,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.4",
+        "php": "^8.3",
         "ext-json": "*"
     },
     "platform-dev": {},
