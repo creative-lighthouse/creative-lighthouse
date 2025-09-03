@@ -9,3 +9,5 @@
 .graphql-generated/
 
 public/_graphql/
+
+.vscode/
