@@ -2,28 +2,21 @@
     "name": "creative-lighthouse/creative-lighthouse",
     "type": "silverstripe-recipe",
     "description": "Website of creative lighthouse",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/wernerkrauss/silverstripe-ideannotator.git"
-        }
-    ],
     "require": {
         "php": "^8.3",
-        "silverstripe/recipe-cms": "^6.0",
-        "dnadesign/silverstripe-elemental": "^6.0",
+        "silverstripe/recipe-cms": "^6.2",
+        "dnadesign/silverstripe-elemental": "^6.2",
         "atwx/silverstripe-vitehelper": "^1.0",
         "ext-json": "*",
         "colymba/gridfield-bulk-editing-tools": "^5.0",
         "undefinedoffset/sortablegridfield": "^3.0",
         "jonom/focuspoint": "^6.0",
         "silverstripe/login-forms": "^6.0",
-        "silverstripe/linkfield": "^5.0",
+        "silverstripe/linkfield": "^5.2",
         "symbiote/silverstripe-multivaluefield": "^7",
         "purplespider/silverstripe-basic-gallery-extension": "^5.0"
     },
     "require-dev": {
-        "silverleague/ideannotator": "dev-silverstripe6 as 4.0",
         "wernerkrauss/silverstripe-rector": "^1",
         "cambis/silverstan": "^2",
         "squizlabs/php_codesniffer": "^3",

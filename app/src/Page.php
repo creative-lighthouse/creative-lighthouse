@@ -4,10 +4,8 @@ namespace {
 
     use DNADesign\Elemental\Models\ElementalArea;
     use DNADesign\Elemental\Extensions\ElementalPageExtension;
-    use SilverStripe\AssetAdmin\Forms\UploadField;
     use SilverStripe\Assets\Image;
     use SilverStripe\CMS\Model\SiteTree;
-    use SilverStripe\Forms\DropdownField;
 
     /**
      * Class \Page
